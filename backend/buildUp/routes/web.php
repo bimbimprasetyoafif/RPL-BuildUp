@@ -15,9 +15,13 @@ Route::get('/', 'PagesController@home');
 
 Route::get('/about', 'PagesController@about');
 
-Route::get('/produk', 'ProdukController@index');
+Route::get('/products', 'ProductsController@index')->name('products.index');
 
+//student
 Route::get('/students', 'StudentsController@index');
 Route::get('/students/create', 'StudentsController@create');
 Route::get('/students/{student}', 'StudentsController@show');
-Route::POST('/students', 'StudentsController@store');
+Route::post('/students', 'StudentsController@store');
+Route::delete('/students/{student}', 'StudentsController@destroy');
+Route::get('/students/{student}/edit', 'StudentsController@edit');
+Route::patch('/students/{student}', 'StudentsController@update');
