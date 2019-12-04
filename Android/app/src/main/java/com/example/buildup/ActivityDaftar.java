@@ -2,7 +2,9 @@ package com.example.buildup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 public class ActivityDaftar extends AppCompatActivity {
 
@@ -10,5 +12,10 @@ public class ActivityDaftar extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daftar);
+    }
+
+    public void loginButton(View view) {
+//        startActivity(new Intent(getApplicationContext(), ActivityLogin.class));
+        onBackPressed();
     }
 }
