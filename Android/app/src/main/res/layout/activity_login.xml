@@ -34,6 +34,7 @@
             android:layout_height="100dp"
             android:layout_weight="1"
             android:background="#FFFFFF"
+            android:onClick="daftarButton"
             android:text="daftar"
             android:textColor="#57A0D3"
             android:textSize="18sp" />

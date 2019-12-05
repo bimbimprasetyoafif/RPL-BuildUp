@@ -24,6 +24,7 @@
             android:layout_height="100dp"
             android:layout_weight="1"
             android:background="#FFFFFF"
+            android:onClick="loginButton"
             android:text="masuk"
             android:textColor="#57A0D3"
             android:textSize="18sp" />

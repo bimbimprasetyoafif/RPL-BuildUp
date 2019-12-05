@@ -5,4 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#57A0D3"
-    tools:context=".MainActivity"/>
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="179dp"
+        android:layout_height="176dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/group28" />
+</androidx.constraintlayout.widget.ConstraintLayout>
