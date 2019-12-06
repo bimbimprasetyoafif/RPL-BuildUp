@@ -12,21 +12,25 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     private final ArrayList<String> fragmentTitle = new ArrayList<>();
 
     public SectionsPagerAdapter(FragmentManager fm) {
+
         super(fm);
     }
 
     @Override
     public Fragment getItem(int position) {
+
         return fragmentList.get(position);
     }
 
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
+
         return fragmentTitle.get(position);
     }
     @Override
     public int getCount() {
+
         return fragmentList.size();
     }
 
