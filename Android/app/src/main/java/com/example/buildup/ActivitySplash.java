@@ -1,9 +1,9 @@
 package com.example.buildup;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class ActivitySplash extends AppCompatActivity {
 
@@ -20,7 +20,7 @@ public class ActivitySplash extends AppCompatActivity {
                   e.printStackTrace();
               }
               finally {
-                  startActivity(new Intent(ActivitySplash.this, ActivityLogin.class));
+                  startActivity(new Intent(ActivitySplash.this, MasukActivity.class));
                   finish();
               }
           }
