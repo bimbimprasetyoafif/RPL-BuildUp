@@ -1,9 +1,9 @@
 package com.example.buildup;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 finally {
-                    startActivity(new Intent(MainActivity.this, ActivityLogin.class));
+                    startActivity(new Intent(MainActivity.this, MasukActivity.class));
                     finish();
                 }
             }

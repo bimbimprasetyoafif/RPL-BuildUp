@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ActivityDaftar"></activity>
+        <activity
+            android:name=".MasukActivity"
+            android:label="@string/title_activity_masuk"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".ActivityDaftar" />
         <activity android:name=".ActivityLogin" />
         <activity android:name=".ActivitySplash" />
         <activity android:name=".MainActivity">

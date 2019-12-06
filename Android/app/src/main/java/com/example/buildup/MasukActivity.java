@@ -7,18 +7,17 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 
-public class ActivityLogin extends AppCompatActivity {
-
+public class MasukActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_masuk);
 
-        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
-        viewPager = (ViewPager) findViewById(R.id.viewPager);
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
+        viewPager = (ViewPager) findViewById(R.id.view_pager);
 
         setupViewPager(viewPager);
 
@@ -26,7 +25,7 @@ public class ActivityLogin extends AppCompatActivity {
     }
 
     private void setupViewPager(ViewPager viewPager){
-        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        com.example.buildup.SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         sectionsPagerAdapter.addFragment(new MasukFragment(), "MASUK");
         sectionsPagerAdapter.addFragment(new DaftarFragment(), "DAFTAR");
         viewPager.setAdapter(sectionsPagerAdapter);
