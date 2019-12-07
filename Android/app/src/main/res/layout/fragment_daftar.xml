@@ -98,14 +98,10 @@
             android:paddingLeft="40dp"
             android:scrollbarAlwaysDrawHorizontalTrack="false" />
 
-        <TextView
-            android:id="@+id/setuju"
+        <CheckBox
+            android:id="@+id/checkBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/josefin_sans_semibold"
-            android:paddingLeft="40dp"
-            android:scrollbarAlwaysDrawHorizontalTrack="false"
             android:text="Saya setuju dengan kebijakan dan privasi" />
 
         <Button
