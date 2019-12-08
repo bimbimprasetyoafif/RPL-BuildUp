@@ -6,5 +6,4 @@
     <string name="tab_text_1">MASUK</string>
     <string name="tab_text_2">DAFTAR</string>
     <string name="title_activity_masuk">MasukActivity</string>
-    <string name="title_activity_password">password</string>
 </resources>
