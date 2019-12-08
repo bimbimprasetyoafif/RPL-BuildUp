@@ -102,7 +102,8 @@
             android:id="@+id/checkBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Saya setuju dengan kebijakan dan privasi" />
+            android:text="Saya setuju dengan kebijakan dan privasi"
+            android:layout_marginLeft="20dp"/>
 
         <Button
             android:id="@+id/button11"
