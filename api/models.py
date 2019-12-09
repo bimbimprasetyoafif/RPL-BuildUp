@@ -11,8 +11,8 @@ class ProductOwner(models.Model):
         return "{} - {}".format(self.id_toko,self.nama)
 
 class Product(models.Model):
-    id_product = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    id_toko = models.ForeignKey(ProductOwner, on_delete=models.CASCADE)
+    id_produk = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    # id_toko = models.ForeignKey(ProductOwner, on_delete=models.CASCADE)
     nama = models.CharField(max_length=50)
     kategori = models.IntegerField()
     deskripsi = models.CharField(max_length=500)
@@ -21,4 +21,4 @@ class Product(models.Model):
     foto = models.FileField(blank=False, null=False)
 
     def __str__(self):
-        return "{} - {}".format(self.id_product,self.nama)
+        return "{} - {}".format(self.id,self.nama)
