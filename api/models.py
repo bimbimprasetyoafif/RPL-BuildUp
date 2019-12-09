@@ -12,7 +12,7 @@ class ProductOwner(models.Model):
 
 class Product(models.Model):
     id_produk = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    # id_toko = models.ForeignKey(ProductOwner, on_delete=models.CASCADE)
+    id_toko = models.ForeignKey(ProductOwner, on_delete=models.CASCADE)
     nama = models.CharField(max_length=50)
     kategori = models.IntegerField()
     deskripsi = models.CharField(max_length=500)
