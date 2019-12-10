@@ -21,4 +21,4 @@ class Product(models.Model):
     foto = models.FileField(blank=False, null=False)
 
     def __str__(self):
-        return "{} - {}".format(self.id,self.nama)
+        return "{} - {}".format(self.id_produk,self.nama)
