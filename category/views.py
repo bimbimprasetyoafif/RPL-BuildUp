@@ -1,3 +1,31 @@
-from django.shortcuts import render
-
+from .models import Categorys
+from api.helper import ListCreateAPIView, RetrieveUpdateDestroyAPIView
+from .serializers import CategorySerializer
 # Create your views here.
+
+class ListCreateAllCategory(ListCreateAPIView):
+    serializer_class = CategorySerializer
+    
+    def get_queryset(self):
+       objek = Categorys.objects.all()
+       return objek
+
+    from api.helper import get_all as get
+    from api.helper import post_new as post
+
+class ListUpdateDeleteSpecificCategory(RetrieveUpdateDestroyAPIView):
+    serializer_class = CategorySerializer
+    content = {
+                'status': 'Not Found'
+            }
+
+    def get_queryset(self, pk):
+        try:
+            objek = Categorys.objects.get(pk=pk)
+        except Categorys.DoesNotExist:
+            return None
+        return objek
+
+    from api.helper import get_specific as get
+    from api.helper import put_specific as put
+    from api.helper import delete_specific as delete

@@ -5,7 +5,7 @@ from store.models import Stores
 # Create your models here.
 class Products(models.Model):
     ProductId = models.IntegerField(primary_key=True)
-    ProductCategory = models.ForeignKey(Categorys, on_delete=models.CASCADE)
+    ProductCategory = models.ForeignKey(Categorys,related_name='ProductInCategory', on_delete=models.CASCADE)
     StoreId = models.ForeignKey(Stores,related_name='ProductItems', on_delete=models.CASCADE)
     ProductName = models.CharField(max_length=50)
     ProductDesc = models.CharField(max_length=500)
