@@ -1,10 +1,14 @@
 package com.example.buildup;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 
 public class MenuActivity extends AppCompatActivity {
@@ -17,19 +21,47 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        tabLayout = (TabLayout) findViewById(R.id.tabsMenu);
-        viewPager = (ViewPager) findViewById(R.id.view_pager_menu);
+        BottomNavigationView navigationView = (BottomNavigationView) findViewById(R.id.menuNav);
 
-        setupViewPager(viewPager);
+        navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
-        tabLayout.setupWithViewPager(viewPager);
-    }
+                int id = menuItem.getItemId();
 
-    private void setupViewPager(ViewPager viewPager){
-        com.example.buildup.SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-        sectionsPagerAdapter.addFragment(new MasukFragment(), "MASUK");
-        sectionsPagerAdapter.addFragment(new DaftarFragment(), "DAFTAR");
-        viewPager.setAdapter(sectionsPagerAdapter);
+                if(id == R.id.toko){
+                    TokoFragment fragment = new TokoFragment();
+                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.frame_layout, fragment);
+                    fragmentTransaction.commit();
+                }
+
+                if(id == R.id.bangunan){
+                    BangunanFragment fragment = new BangunanFragment();
+                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.frame_layout, fragment);
+                    fragmentTransaction.commit();
+                }
+
+                if(id == R.id.aktifitas){
+                    AktifitasFragment fragment = new AktifitasFragment();
+                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.frame_layout, fragment);
+                    fragmentTransaction.commit();
+                }
+
+                if(id == R.id.akun){
+                    AkunFragment fragment = new AkunFragment();
+                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.frame_layout, fragment);
+                    fragmentTransaction.commit();
+                }
+
+                return true;
+            }
+        });
+
+        navigationView.setSelectedItemId(R.id.toko);
     }
 
 }
