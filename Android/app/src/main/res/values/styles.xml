@@ -17,4 +17,7 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="customFont" parent="@android:style/TextAppearance.Small">
+        <item name="android:fontFamily">@font/josefin_sans</item>
+    </style>
 </resources>

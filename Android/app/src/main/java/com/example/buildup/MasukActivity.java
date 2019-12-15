@@ -1,6 +1,8 @@
 package com.example.buildup;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -32,4 +34,7 @@ public class MasukActivity extends AppCompatActivity {
     }
 
 
+    public void klikLupaPassword(View view) {
+        startActivity(new Intent(MasukActivity.this, LupaPasswordActivity.class));
+    }
 }

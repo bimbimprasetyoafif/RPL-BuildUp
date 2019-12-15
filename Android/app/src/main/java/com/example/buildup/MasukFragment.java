@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import com.example.buildup.MasukActivity;
 
 
 /**
@@ -28,20 +29,19 @@ public class MasukFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        final View rootView;
+        final View rootView, view;
         rootView = inflater.inflate(R.layout.fragment_masuk, container, false);
+        view = inflater.inflate(R.layout.activity_password, container, false);
         // Inflate the layout for this fragment
-        textView = (TextView)rootView.findViewById(R.id.lupaSandiTextView);
-        textView.setOnClickListener(new View.OnClickListener() {
+        button = (Button) rootView.findViewById(R.id.buttonMasuk);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(rootView.getContext(), Password.class));
+                startActivity(new Intent(rootView.getContext(), MenuActivity.class));
             }
         });
-
         return rootView;
     }
-
 
 
 }
