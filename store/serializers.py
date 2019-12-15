@@ -6,7 +6,8 @@ class StoresSerializer(serializers.ModelSerializer):
     ProductItems = ProductSerializer(many=True)
     class Meta:
         model = Stores
-        fields = ['StoreId', 'StoreName', 'StoreAddress', 'StoreImage', 'ProductItems']
+        # fields = ['StoreId', 'StoreName', 'StoreAddress', 'StoreImage', 'ProductItems']
+        fields = "__all__"
 
 
 
