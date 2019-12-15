@@ -1,7 +1,7 @@
 from django.urls import path
 from products.views import ListCreateAllProduct,ListUpdateDeleteSpecificProduct
 from store.views import ListCreateAllStore, ListUpdateDeleteSpecificStore
-from category.views import ListCreateAllCategory, ListUpdateDeleteSpecificCategory
+from category.views import ListCreateAllCategory, ListUpdateDeleteSpecificCategory, ListCreateAllCategoryHome, ListUpdateDeleteSpecificCategoryHome
 
 urlpatterns = [
     path('produk/',ListCreateAllProduct.as_view()),
@@ -12,4 +12,7 @@ urlpatterns = [
 
     path('kategori/',ListCreateAllCategory.as_view()),
     path('kategori/<int:pk>', ListUpdateDeleteSpecificCategory.as_view()),
+
+    path('kategorirumah/',ListCreateAllCategoryHome.as_view()),
+    path('kategorirumah/<int:pk>', ListUpdateDeleteSpecificCategoryHome.as_view()),
 ]
