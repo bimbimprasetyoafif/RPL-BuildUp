@@ -1,0 +1,2 @@
+if anything happend with db
+    python manage.py migrate --run-syncdb
