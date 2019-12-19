@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Vendors(models.Model):
-    VendorId= models.IntegerField(primary_key=True)
+    VendorId= models.AutoField(primary_key=True, editable=False, unique=True,)
     VendorName = models.CharField(max_length=50)
     VendorAddress = models.CharField(max_length=500)
     VendorDesc = models.CharField(max_length=100)
