@@ -1,10 +1,11 @@
 from django.urls import path
-from products.views import ListCreateAllProduct,ListUpdateDeleteSpecificProduct
+from products.views import ListCreateAllProduct,ListUpdateDeleteSpecificProduct, FileUploadView
 from store.views import ListCreateAllStore, ListUpdateDeleteSpecificStore
 from category.views import ListCreateAllCategory, ListUpdateDeleteSpecificCategory, ListCreateAllCategoryHome, ListUpdateDeleteSpecificCategoryHome
 
 urlpatterns = [
     path('produk/',ListCreateAllProduct.as_view()),
+    path('produk/gambar/upload',FileUploadView.as_view()),
     path('produk/<int:pk>', ListUpdateDeleteSpecificProduct.as_view()),
 
     path('toko/',ListCreateAllStore.as_view()),
