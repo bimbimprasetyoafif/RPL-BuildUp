@@ -6,11 +6,11 @@ class Categorys(models.Model):
     CategoryName = models.CharField(max_length=50)
 
     def __str__(self):
-        return "{} - {}".format(self.CategoryId,self.CategoryName)
+        return self.CategoryName
 
 class CategorysHome(models.Model):
     CategoryId= models.AutoField(primary_key=True, editable=False, unique=True,)
     CategoryName = models.CharField(max_length=50)
 
     def __str__(self):
-        return "{} - {}".format(self.CategoryId,self.CategoryName)
+        return self.CategoryName
