@@ -13,6 +13,7 @@ class Products(models.Model):
     ProductStock = models.IntegerField()
     ProductSatuan = models.IntegerField()
     ProductNamaSatuan = models.CharField(max_length=20)
+    creator = models.ForeignKey('auth.User', related_name='Product', on_delete=models.CASCADE)
 
     def __str__(self):
         return "{} - {}".format(self.ProductId,self.ProductName)
