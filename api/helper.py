@@ -17,6 +17,8 @@ def get_all(self, request):
 
 def post_new(self, request):
     serializer = self.serializer_class(data=request.data)
+    data = request.data
+    data['creator'] = request.user.pk
     if serializer.is_valid():
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)

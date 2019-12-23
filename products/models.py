@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 from category.models import Categorys
 from store.models import Stores
 
@@ -13,7 +14,7 @@ class Products(models.Model):
     ProductStock = models.IntegerField()
     ProductSatuan = models.IntegerField()
     ProductNamaSatuan = models.CharField(max_length=20)
-    creator = models.ForeignKey('auth.User', related_name='Product', on_delete=models.CASCADE)
+    creator = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='Product', on_delete=models.CASCADE)
 
     def __str__(self):
         return "{} - {}".format(self.ProductId,self.ProductName)
