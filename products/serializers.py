@@ -10,18 +10,22 @@ class ProductImagesSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 class ProductSerializer(serializers.ModelSerializer):
-    ImagesProduct = ProductImagesSerializer(many=True)
+    allImagesProduct = ProductImagesSerializer(many=True, read_only=True)
+    # creator = serializers.IntegerField(read_only=)
+    # creator = serializers.ReadOnlyField(read_only=True)
+    # creator = serializers.PrimaryKeyRelatedField(required=False, queryset=Products.objects.all())
+    # creator = serializers.ReadOnlyField(required=False)
 
     class Meta:
         model = Products
         fields = "__all__"
 
-    def create(self, validated_data):
-        tracks_data = validated_data.pop('ImagesProduct')
-        produk = Products.objects.create(**validated_data)
-        for track_data in tracks_data:
-            Products.objects.create(produk=produk, **track_data)
-        return produk
+    # def create(self, validated_data):
+    #     tracks_data = validated_data.pop('ImagesProduct')
+    #     produk = Products.objects.create(**validated_data)
+    #     for track_data in tracks_data:
+    #         Products.objects.create(produk=produk, **track_data)
+    #     return produk
 
 
 

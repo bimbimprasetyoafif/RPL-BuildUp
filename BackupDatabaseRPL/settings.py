@@ -46,12 +46,10 @@ INSTALLED_APPS = [
     'django.contrib.sites',
 
     'api',
+    'allUsers',
 
     'products',
-    'store',
     'category',
-
-    'allUsers',
 ]
 
 # AUTH_USER_MODEL = 'allUsers.AllUser'
@@ -65,7 +63,7 @@ INSTALLED_APPS = [
 AUTH_USER_MODEL = 'allUsers.Account'
 AUTHENTICATION_BACKENDS = ( 
     'django.contrib.auth.backends.AllowAllUsersModelBackend', 
-    'account.backends.CaseInsensitiveModelBackend',
+    'allUsers.backends.CaseInsensitiveModelBackend',
     )
 
 REST_FRAMEWORK = {
@@ -76,6 +74,8 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ),
 }
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

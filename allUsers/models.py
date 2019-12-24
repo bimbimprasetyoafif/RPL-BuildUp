@@ -37,6 +37,12 @@ class MyAccountManager(BaseUserManager):
 
 
 class Account(AbstractBaseUser):
+	ROLE = (
+        (1, 'Customer'),
+        (2, 'Vendor'),
+        (3, 'Store'),
+    )
+
 	email 					= models.EmailField(verbose_name="email", max_length=60, unique=True)
 	username 				= models.CharField(max_length=30, unique=True)
 	date_joined				= models.DateTimeField(verbose_name='date joined', auto_now_add=True)
@@ -45,11 +51,12 @@ class Account(AbstractBaseUser):
 	is_active				= models.BooleanField(default=True)
 	is_staff				= models.BooleanField(default=False)
 	is_superuser			= models.BooleanField(default=False)
-	nik						= models.CharField(max_length=20, null=True)
+	role					= models.IntegerField(choices=ROLE, blank=True)
+	nik						= models.CharField(max_length=20, blank=True)
 	name					= models.CharField(max_length=50)
 	address					= models.CharField(max_length=50)
 	phone					= models.CharField(max_length=50)
-	image		 			= models.FileField(blank=False, null=False)
+	image		 			= models.FileField(blank=False, null=True)
 
 
 	USERNAME_FIELD = 'email'
@@ -58,7 +65,7 @@ class Account(AbstractBaseUser):
 	objects = MyAccountManager()
 
 	def __str__(self):
-		return self.email
+		return "{} - {} - {}".format(self.pk, self.email, self.username)
 
 	# For checking permissions. to keep it simple all admin have ALL permissons
 	def has_perm(self, perm, obj=None):

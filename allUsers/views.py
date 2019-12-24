@@ -8,7 +8,25 @@ from django.contrib.auth import authenticate
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
 
-from .serializers import RegistrationSerializer, AccountPropertiesSerializer, ChangePasswordSerializer
+from api.helper import ListCreateAPIView
+
+
+# from rest_framework.permissions import AllowAny
+# from django.views.decorators.csrf import csrf_exempt
+# from rest_framework.status import (
+#     HTTP_400_BAD_REQUEST,
+#     HTTP_404_NOT_FOUND,
+#     HTTP_200_OK
+# )
+
+from .serializers import (
+	RegistrationSerializer, 
+	RegistrationStoreSerializer,
+	RegistrationVendorSerializer,
+	AccountPropertiesSerializer,
+	AccountAllPropertiesSerializer, 
+	ChangePasswordSerializer
+)
 from .models import *
 from rest_framework.authtoken.models import Token
 
@@ -38,15 +56,93 @@ def registration_view(request):
 		
 		if serializer.is_valid():
 			allUsers = serializer.save()
-			data['response'] = 'successfully registered new user.'
+			data['response'] = 'success'
 			data['email'] = allUsers.email
 			data['username'] = allUsers.username
+			data['name'] = allUsers.name
+			data['address'] = allUsers.address
+			data['phone'] = allUsers.phone
+			data['nik'] = allUsers.nik
+			data['pk'] = allUsers.pk
+			
+		else:
+			data = serializer.errors
+		return Response(data)
+
+@api_view(['POST', ])
+@permission_classes([])
+@authentication_classes([])
+def registration_vendor_view(request):
+
+	if request.method == 'POST':
+		data = {}
+		email = request.data.get('email', '0').lower()
+		if validate_email(email) != None:
+			data['error_message'] = 'That email is already in use.'
+			data['response'] = 'Error'
+			return Response(data)
+
+		username = request.data.get('username', '0')
+		if validate_username(username) != None:
+			data['error_message'] = 'That username is already in use.'
+			data['response'] = 'Error'
+			return Response(data)
+
+		serializer = RegistrationVendorSerializer(data=request.data)
+		
+		if serializer.is_valid():
+			allUsers = serializer.save()
+			data['response'] = 'success'
+			data['email'] = allUsers.email
+			data['username'] = allUsers.username
+			data['name'] = allUsers.name
+			data['address'] = allUsers.address
+			data['phone'] = allUsers.phone
+			data['nik'] = allUsers.nik
 			data['pk'] = allUsers.pk
 			token = Token.objects.get(user=allUsers).key
 			data['token'] = token
 		else:
 			data = serializer.errors
 		return Response(data)
+
+@api_view(['POST', ])
+@permission_classes([])
+@authentication_classes([])
+def registration_store_view(request):
+
+	if request.method == 'POST':
+		data = {}
+		email = request.data.get('email', '0').lower()
+		if validate_email(email) != None:
+			data['error_message'] = 'That email is already in use.'
+			data['response'] = 'Error'
+			return Response(data)
+
+		username = request.data.get('username', '0')
+		if validate_username(username) != None:
+			data['error_message'] = 'That username is already in use.'
+			data['response'] = 'Error'
+			return Response(data)
+
+		serializer = RegistrationStoreSerializer(data=request.data)
+		
+		if serializer.is_valid():
+			allUsers = serializer.save()
+			data['response'] = 'success'
+			data['email'] = allUsers.email
+			data['username'] = allUsers.username
+			data['name'] = allUsers.name
+			data['address'] = allUsers.address
+			data['phone'] = allUsers.phone
+			data['nik'] = allUsers.nik
+			data['pk'] = allUsers.pk
+			token = Token.objects.get(user=allUsers).key
+			data['token'] = token
+		else:
+			data = serializer.errors
+		return Response(data)
+
 
 def validate_email(email):
 	allUsers = None
@@ -84,6 +180,24 @@ def account_properties_view(request):
 		serializer = AccountPropertiesSerializer(allUsers)
 		return Response(serializer.data)
 
+@permission_classes((IsAuthenticated, ))
+class account_properties_all_view(ListCreateAPIView):
+	serializer_class = AccountAllPropertiesSerializer
+
+	def get_queryset(self):
+		account = Account.objects.all()
+		return account
+	
+	from api.helper import get_all as get
+
+	pass
+	# try:
+	# 	allUsers = request.user
+	# except Account.DoesNotExist:
+	# 	return Response(status=status.HTTP_404_NOT_FOUND)
+
+	
+
 
 # Account update properties
 # Response: https://gist.github.com/mitchtabian/72bb4c4811199b1d303eb2d71ec932b2
@@ -112,6 +226,24 @@ def update_account_view(request):
 # LOGIN
 # Response: https://gist.github.com/mitchtabian/8e1bde81b3be342853ddfcc45ec0df8a
 # URL: http://127.0.0.1:8000/api/allUsers/login
+
+# @csrf_exempt
+# @api_view(["POST"])
+# @permission_classes((AllowAny,))
+# def login(request):
+#     username = request.data.get("username")
+#     password = request.data.get("password")
+#     if username is None or password is None:
+#         return Response({'error': 'Please provide both username and password'},
+#                         status=HTTP_400_BAD_REQUEST)
+#     user = authenticate(username=username, password=password)
+#     if not user:
+#         return Response({'error': 'Invalid Credentials'},
+#                         status=HTTP_404_NOT_FOUND)
+#     token, _ = Token.objects.get_or_create(user=user)
+#     return Response({'token': token.key},
+#                     status=HTTP_200_OK)
+
 class ObtainAuthTokenView(APIView):
 
 	authentication_classes = []
@@ -120,15 +252,15 @@ class ObtainAuthTokenView(APIView):
 	def post(self, request):
 		context = {}
 
-		email = request.POST.get('username')
-		password = request.POST.get('password')
+		email = request.data.get('email')
+		password = request.data.get('password')
 		allUsers = authenticate(email=email, password=password)
 		if allUsers:
 			try:
 				token = Token.objects.get(user=allUsers)
 			except Token.DoesNotExist:
 				token = Token.objects.create(user=allUsers)
-			context['response'] = 'Successfully authenticated.'
+			context['response'] = 'Success'
 			context['pk'] = allUsers.pk
 			context['email'] = email.lower()
 			context['token'] = token.key
@@ -145,15 +277,21 @@ class ObtainAuthTokenView(APIView):
 @permission_classes([])
 @authentication_classes([])
 def does_account_exist_view(request):
-
-	if request.method == 'GET':
-		email = request.GET['email'].lower()
-		data = {}
+	data = {}	
+	email = request.data.get('email')
+	try:
 		try:
 			allUsers = Account.objects.get(email=email)
-			data['response'] = email
+			data['response'] = 1
+			data['email'] = email
+			data['username'] = allUsers.username
+			data['id'] = allUsers.pk
 		except Account.DoesNotExist:
-			data['response'] = "Account does not exist"
+			data['response'] = 0
+			return Response(data)
+		return Response(data)
+	except:
+		data['response'] = "Error"
 		return Response(data)
 
 
