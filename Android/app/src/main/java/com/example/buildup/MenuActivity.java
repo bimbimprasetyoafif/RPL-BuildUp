@@ -29,15 +29,15 @@ public class MenuActivity extends AppCompatActivity {
 
                 int id = menuItem.getItemId();
 
-                if(id == R.id.toko){
-                    TokoFragment fragment = new TokoFragment();
+                if(id == R.id.bangunan){
+                    BangunanFragment fragment = new BangunanFragment();
                     FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.frame_layout, fragment);
                     fragmentTransaction.commit();
                 }
 
-                if(id == R.id.bangunan){
-                    BangunanFragment fragment = new BangunanFragment();
+                if(id == R.id.toko){
+                    TokoFragment fragment = new TokoFragment();
                     FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.frame_layout, fragment);
                     fragmentTransaction.commit();
@@ -61,7 +61,7 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
-        navigationView.setSelectedItemId(R.id.toko);
+        navigationView.setSelectedItemId(R.id.bangunan);
     }
 
 }
