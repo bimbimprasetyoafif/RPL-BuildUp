@@ -13,7 +13,10 @@ from rest_framework.generics import (
 def get_all(self, request):
     data = self.get_queryset()
     serializer = self.serializer_class(data, many=True)
-    return Response(serializer.data)
+    if serializer == None:
+            return Response(self.content, status=status.HTTP_404_NOT_FOUND)
+    else:
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 def post_new(self, request):
     serializer = self.serializer_class(data=request.data)
@@ -31,12 +34,17 @@ def post_new(self, request):
 # =================
 
 def get_specific(self, request, pk):
-    data = self.get_queryset(pk) 
-    serializer = self.serializer_class(data)
-    if serializer == None:
+    try:
+        data = self.get_queryset(pk) 
+        
+        serializer = self.serializer_class(data)
+        
+        if serializer == None:
+            return Response(self.content, status=status.HTTP_404_NOT_FOUND)
+        else:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+    except:        
         return Response(self.content, status=status.HTTP_404_NOT_FOUND)
-    else:
-        return Response(serializer.data, status=status.HTTP_200_OK)
 
 def put_specific(self, request, pk):    
     data = self.get_queryset(pk)

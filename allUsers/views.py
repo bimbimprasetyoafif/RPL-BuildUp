@@ -8,16 +8,19 @@ from django.contrib.auth import authenticate
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
 
-from api.helper import ListCreateAPIView
+from api.helper import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 
 
 # from rest_framework.permissions import AllowAny
 # from django.views.decorators.csrf import csrf_exempt
-# from rest_framework.status import (
-#     HTTP_400_BAD_REQUEST,
-#     HTTP_404_NOT_FOUND,
-#     HTTP_200_OK
-# )
+from rest_framework.status import (
+    HTTP_400_BAD_REQUEST,
+    HTTP_404_NOT_FOUND,
+    HTTP_200_OK,
+	HTTP_203_NON_AUTHORITATIVE_INFORMATION,
+	HTTP_201_CREATED,
+	HTTP_202_ACCEPTED,
+)
 
 from .serializers import (
 	RegistrationSerializer, 
@@ -27,12 +30,12 @@ from .serializers import (
 	AccountAllPropertiesSerializer, 
 	ChangePasswordSerializer
 )
-from .models import *
+from .models import Account
 from rest_framework.authtoken.models import Token
 
 # Register
 # Response: https://gist.github.com/mitchtabian/c13c41fa0f51b304d7638b7bac7cb694
-# Url: https://<your-domain>/api/allUsers/register
+# Url: https://<your-domain>/api/register
 @api_view(['POST', ])
 @permission_classes([])
 @authentication_classes([])
@@ -64,11 +67,14 @@ def registration_view(request):
 			data['phone'] = allUsers.phone
 			data['nik'] = allUsers.nik
 			data['pk'] = allUsers.pk
+			token = Token.objects.get(user=allUsers).key
+			data['token'] = token
 			
 		else:
 			data = serializer.errors
 		return Response(data)
 
+# Url: https://<your-domain>/api/vendor/register
 @api_view(['POST', ])
 @permission_classes([])
 @authentication_classes([])
@@ -106,6 +112,7 @@ def registration_vendor_view(request):
 			data = serializer.errors
 		return Response(data)
 
+# Url: https://<your-domain>/api/toko/register
 @api_view(['POST', ])
 @permission_classes([])
 @authentication_classes([])
@@ -165,7 +172,7 @@ def validate_username(username):
 
 # Account properties
 # Response: https://gist.github.com/mitchtabian/4adaaaabc767df73c5001a44b4828ca5
-# Url: https://<your-domain>/api/allUsers/
+# Url: https://<your-domain>/api/profile/me
 # Headers: Authorization: Token <token>
 @api_view(['GET', ])
 @permission_classes((IsAuthenticated, ))
@@ -180,23 +187,62 @@ def account_properties_view(request):
 		serializer = AccountPropertiesSerializer(allUsers)
 		return Response(serializer.data)
 
+# Url: https://<your-domain>/api/toko/
 @permission_classes((IsAuthenticated, ))
-class account_properties_all_view(ListCreateAPIView):
+class toko_properties_all_view(ListCreateAPIView):
 	serializer_class = AccountAllPropertiesSerializer
 
 	def get_queryset(self):
-		account = Account.objects.all()
+		account = Account.objects.filter(role=3)
 		return account
 	
 	from api.helper import get_all as get
-
-	pass
 	# try:
 	# 	allUsers = request.user
 	# except Account.DoesNotExist:
 	# 	return Response(status=status.HTTP_404_NOT_FOUND)
 
+@permission_classes((IsAuthenticated, ))
+class toko_properties_all_view_specific(RetrieveUpdateDestroyAPIView):
+	serializer_class = AccountAllPropertiesSerializer
+	content = {
+                'status': 'Not Found'
+            }
+	def get_queryset(self, pk):
+		
+		# account = Account.objects.filter(pk=pk).filter(role=3).values()
+		# account = Account.objects.filter(pk=5).values()
+		account = Account.objects.get(pk=pk, role=3)
+		return account
 	
+	from api.helper import get_specific as get
+
+@permission_classes((IsAuthenticated, ))
+class vendor_properties_all_view(ListCreateAPIView):
+	serializer_class = AccountAllPropertiesSerializer
+
+	def get_queryset(self):
+		account = Account.objects.filter(role=2)
+		return account
+	
+	from api.helper import get_all as get
+	# try:
+	# 	allUsers = request.user
+	# except Account.DoesNotExist:
+	# 	return Response(status=status.HTTP_404_NOT_FOUND)
+
+@permission_classes((IsAuthenticated, ))
+class vendor_properties_all_view_specific(ListCreateAPIView):
+	serializer_class = AccountAllPropertiesSerializer
+	content = {
+                'status': 'Not Found'
+            }
+	def get_queryset(self, pk):
+		account = Account.objects.get(pk=pk, role=2)
+		return account
+	
+	from api.helper import get_specific as get
+
 
 
 # Account update properties
@@ -217,7 +263,8 @@ def update_account_view(request):
 		data = {}
 		if serializer.is_valid():
 			serializer.save()
-			data['response'] = 'Account update success'
+			data['response'] = 'success'
+			data['data'] = serializer.data
 			return Response(data=data)
 		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
@@ -254,7 +301,7 @@ class ObtainAuthTokenView(APIView):
 
 		email = request.data.get('email')
 		password = request.data.get('password')
-		allUsers = authenticate(email=email, password=password)
+		allUsers = authenticate(username=email, password=password)
 		if allUsers:
 			try:
 				token = Token.objects.get(user=allUsers)
@@ -262,13 +309,15 @@ class ObtainAuthTokenView(APIView):
 				token = Token.objects.create(user=allUsers)
 			context['response'] = 'Success'
 			context['pk'] = allUsers.pk
-			context['email'] = email.lower()
+			context['username'] = allUsers.username
+			context['email'] = allUsers.email
 			context['token'] = token.key
 		else:
 			context['response'] = 'Error'
 			context['error_message'] = 'Invalid credentials'
+			return Response(context,status=HTTP_203_NON_AUTHORITATIVE_INFORMATION)
 
-		return Response(context)
+		return Response(context,status=HTTP_202_ACCEPTED)
 
 
 

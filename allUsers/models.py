@@ -59,8 +59,8 @@ class Account(AbstractBaseUser):
 	image		 			= models.ImageField(blank=False, null=True)
 
 
-	USERNAME_FIELD = 'email'
-	REQUIRED_FIELDS = ['username']
+	USERNAME_FIELD = 'username'
+	REQUIRED_FIELDS = ['email']
 
 	objects = MyAccountManager()
 

@@ -5,7 +5,10 @@ from allUsers.views import(
     registration_vendor_view,
 	ObtainAuthTokenView,
 	account_properties_view,
-    account_properties_all_view,
+    toko_properties_all_view,
+    toko_properties_all_view_specific,
+    vendor_properties_all_view,
+    vendor_properties_all_view_specific,
 	update_account_view,
 	does_account_exist_view,
 	ChangePasswordView,
@@ -21,15 +24,16 @@ urlpatterns = [
     # path('auth/registration/', RegisterView.as_view()),
     # path('auth/', include('rest_auth.urls')),
 
-    path('profile/check/', does_account_exist_view),
-	path('profile/change_password/', ChangePasswordView.as_view(), name="change_password"),
-	path('profile/me/', account_properties_view, name="properties"),
-	path('profile/update/', update_account_view, name="update"),
- 	path('profile/login/', ObtainAuthTokenView.as_view(), name="login"), 
-    # path('login', login), 
+    path('profile/check/', does_account_exist_view), #cek profile
+	path('profile/change_password/', ChangePasswordView.as_view(), name="change_password"), #ganti pass
+	path('profile/me/', account_properties_view, name="properties"), #lihat profile
+	path('profile/update/', update_account_view, name="update"), #update profile
+ 	path('profile/login/', ObtainAuthTokenView.as_view(), name="login"), #login semua user
 
-    path('toko/', account_properties_all_view.as_view()),
-    # path('toko/<int:pk>',),
+    path('toko/', toko_properties_all_view.as_view()),
+    path('toko/<int:pk>/',toko_properties_all_view_specific.as_view()),
+    path('vendor/', vendor_properties_all_view.as_view()),
+    path('vendor/<int:pk>/',vendor_properties_all_view_specific.as_view()),
 
 	path('register/', registration_view, name="register"),
     path('vendor/register/', registration_vendor_view, name="register"),

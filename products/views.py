@@ -29,10 +29,7 @@ class ListUpdateDeleteSpecificProduct(RetrieveUpdateDestroyAPIView):
             }
 
     def get_queryset(self, pk):
-        try:
-            produk = Products.objects.get(pk=pk)
-        except Products.DoesNotExist:
-            return None
+        produk = Products.objects.get(pk=pk)
         return produk
 
     from api.helper import get_specific as get

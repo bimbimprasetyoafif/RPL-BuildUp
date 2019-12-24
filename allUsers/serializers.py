@@ -98,19 +98,17 @@ class RegistrationStoreSerializer(serializers.ModelSerializer):
 
 
 class AccountPropertiesSerializer(serializers.ModelSerializer):
-	allProduct = ProductSerializer(many=True, read_only=True)
 	class Meta:
 		model = Account
-		fields = ['id', 'email', 'role','username', 'date_joined','last_login','nik','name','address','phone','image','allProduct']
+		fields = ['id', 'email', 'role','username', 'date_joined','last_login','nik','name','address','phone','image']
+
 
 class AccountAllPropertiesSerializer(serializers.ModelSerializer):
-
 	allProduct = ProductSerializer(many=True, read_only=True)
 	class Meta:
 		model = Account
-		fields = ['id', 'email','nik','name','address','phone','image', 'allProduct']
-
-
+		fields = ['id', 'role','nik','name','address','phone','image', 'allProduct']
+		# fields = "__all__"
 
 
 class ChangePasswordSerializer(serializers.Serializer):
