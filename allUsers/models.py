@@ -56,7 +56,7 @@ class Account(AbstractBaseUser):
 	name					= models.CharField(max_length=50)
 	address					= models.CharField(max_length=50)
 	phone					= models.CharField(max_length=50)
-	image		 			= models.FileField(blank=False, null=True)
+	image		 			= models.ImageField(blank=False, null=True)
 
 
 	USERNAME_FIELD = 'email'
@@ -65,7 +65,7 @@ class Account(AbstractBaseUser):
 	objects = MyAccountManager()
 
 	def __str__(self):
-		return "{} - {} - {}".format(self.pk, self.email, self.username)
+		return "{} - {} - {} - {}".format(self.pk, self.email, self.username, self.role)
 
 	# For checking permissions. to keep it simple all admin have ALL permissons
 	def has_perm(self, perm, obj=None):

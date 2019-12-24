@@ -19,7 +19,7 @@ class Products(models.Model):
 
 class ProductImages(models.Model):
     ProdId = models.ForeignKey(Products, related_name="allImagesProduct", on_delete=models.CASCADE,)
-    ProductImage = models.FileField(blank=False, null=False)
+    ProductImage = models.ImageField(blank=False, null=False)
 
     def __str__(self):
         return "{} - {}".format(self.ProdId, self.ProductImage.name)
