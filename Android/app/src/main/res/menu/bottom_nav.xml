@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/toko"
+        android:title="Toko"
+        android:icon="@drawable/ic_action_toko"
+        ></item>
+
+    <item
+        android:id="@+id/bangunan"
+        android:title="Bangunan"
+        android:icon="@drawable/ic_action_bangunan"
+        ></item>
+
+    <item
+        android:id="@+id/aktifitas"
+        android:title="Aktifitas"
+        android:icon="@drawable/ic_action_aktifitas"
+        ></item>
+
+    <item
+        android:id="@+id/akun"
+        android:title="Akun"
+        android:icon="@drawable/ic_action_akun"
+        ></item>
+
+</menu>

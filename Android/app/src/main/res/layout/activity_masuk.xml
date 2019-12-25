@@ -20,6 +20,7 @@
             app:tabIndicatorColor="?attr/colorPrimary"
             app:tabIndicatorHeight="6dp"
             app:tabMode="fixed"
+            app:tabTextAppearance="@style/customFont"
             app:tabTextColor="@android:color/black" />
 
     </com.google.android.material.appbar.AppBarLayout>

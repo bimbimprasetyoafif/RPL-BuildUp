@@ -7,120 +7,128 @@
     tools:context=".DaftarFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
-        android:layout_width="372dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
-        android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/nikText"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginTop="-4dp"
-            android:layout_marginBottom="-20dp"
-            android:background="@drawable/textfield"
-            android:ems="10"
-            android:fontFamily="@font/josefin_sans"
-            android:hint="NIK"
-            android:inputType="textPersonName"
-            android:paddingLeft="40dp"
-            android:scrollbarAlwaysDrawHorizontalTrack="false" />
-
-        <EditText
-            android:id="@+id/namaText"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginTop="-4dp"
-            android:layout_marginBottom="-20dp"
-            android:background="@drawable/textfield"
-            android:ems="10"
-            android:fontFamily="@font/josefin_sans"
-            android:hint="Nama Lengkap"
-            android:inputType="textPersonName"
-            android:paddingLeft="40dp"
-            android:scrollbarAlwaysDrawHorizontalTrack="false" />
-
-        <EditText
-            android:id="@+id/noTelpText"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginTop="-4dp"
-            android:layout_marginBottom="-20dp"
-            android:background="@drawable/textfield"
-            android:ems="10"
-            android:fontFamily="@font/josefin_sans"
-            android:hint="Nomor Telepon"
-            android:inputType="phone"
-            android:paddingLeft="40dp"
-            android:scrollbarAlwaysDrawHorizontalTrack="false" />
-
-        <EditText
-            android:id="@+id/emailText"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginTop="-4dp"
-            android:layout_marginBottom="-20dp"
-            android:background="@drawable/textfield"
-            android:ems="10"
-            android:fontFamily="@font/josefin_sans"
-            android:hint="Email"
-            android:inputType="textPersonName"
-            android:paddingLeft="40dp"
-            android:scrollbarAlwaysDrawHorizontalTrack="false" />
-
-        <EditText
-            android:id="@+id/usernameText"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginTop="-4dp"
-            android:layout_marginBottom="-20dp"
-            android:background="@drawable/textfield"
-            android:ems="10"
-            android:fontFamily="@font/josefin_sans"
-            android:hint="Username"
-            android:inputType="textPersonName"
-            android:paddingLeft="40dp"
-            android:scrollbarAlwaysDrawHorizontalTrack="false" />
-
-        <EditText
-            android:id="@+id/passwordText"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginTop="-4dp"
-            android:layout_marginBottom="-20dp"
-            android:background="@drawable/textfield"
-            android:ems="10"
-            android:fontFamily="@font/josefin_sans"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:paddingLeft="40dp"
-            android:scrollbarAlwaysDrawHorizontalTrack="false" />
-
-        <CheckBox
-            android:id="@+id/setuju"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="372dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/josefin_sans_semibold"
-            android:layout_marginLeft="20dp"
-            android:scrollbarAlwaysDrawHorizontalTrack="false"
-            android:text="Saya setuju dengan kebijakan dan privasi" />
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/button11"
-            android:layout_width="320dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center
+            <EditText
+                android:id="@+id/nikText"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="-4dp"
+                android:layout_marginBottom="-20dp"
+                android:background="@drawable/textfield"
+                android:ems="10"
+                android:fontFamily="@font/josefin_sans"
+                android:hint="NIK"
+                android:inputType="textPersonName"
+                android:paddingLeft="40dp"
+                android:scrollbarAlwaysDrawHorizontalTrack="false" />
+
+            <EditText
+                android:id="@+id/namaText"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="-4dp"
+                android:layout_marginBottom="-20dp"
+                android:background="@drawable/textfield"
+                android:ems="10"
+                android:fontFamily="@font/josefin_sans"
+                android:hint="Nama Lengkap"
+                android:inputType="textPersonName"
+                android:paddingLeft="40dp"
+                android:scrollbarAlwaysDrawHorizontalTrack="false" />
+
+            <EditText
+                android:id="@+id/noTelpText"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="-4dp"
+                android:layout_marginBottom="-20dp"
+                android:background="@drawable/textfield"
+                android:ems="10"
+                android:fontFamily="@font/josefin_sans"
+                android:hint="Nomor Telepon"
+                android:inputType="phone"
+                android:paddingLeft="40dp"
+                android:scrollbarAlwaysDrawHorizontalTrack="false" />
+
+            <EditText
+                android:id="@+id/emailText"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="-4dp"
+                android:layout_marginBottom="-20dp"
+                android:background="@drawable/textfield"
+                android:ems="10"
+                android:fontFamily="@font/josefin_sans"
+                android:hint="Email"
+                android:inputType="textPersonName"
+                android:paddingLeft="40dp"
+                android:scrollbarAlwaysDrawHorizontalTrack="false" />
+
+            <EditText
+                android:id="@+id/usernameText"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="-4dp"
+                android:layout_marginBottom="-20dp"
+                android:background="@drawable/textfield"
+                android:ems="10"
+                android:fontFamily="@font/josefin_sans"
+                android:hint="Username"
+                android:inputType="textPersonName"
+                android:paddingLeft="40dp"
+                android:scrollbarAlwaysDrawHorizontalTrack="false" />
+
+            <EditText
+                android:id="@+id/passwordText"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="-4dp"
+                android:layout_marginBottom="-20dp"
+                android:background="@drawable/textfield"
+                android:ems="10"
+                android:fontFamily="@font/josefin_sans"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:paddingLeft="40dp"
+                android:scrollbarAlwaysDrawHorizontalTrack="false" />
+
+            <CheckBox
+                android:id="@+id/setuju"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/josefin_sans_semibold"
+                android:scrollbarAlwaysDrawHorizontalTrack="false"
+                android:text="Saya setuju dengan kebijakan dan privasi" />
+
+            <Button
+                android:id="@+id/buttonDaftar"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center
 "
-            android:layout_marginTop="40dp"
-            android:background="@drawable/tm_biru"
-            android:fontFamily="@font/josefin_sans_semibold"
-            android:text="daftar"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp" />
+                android:layout_marginTop="40dp"
+                android:background="@drawable/tm_biru"
+                android:fontFamily="@font/josefin_sans_semibold"
+                android:text="daftar"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
 
-    </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
 
 </RelativeLayout>
