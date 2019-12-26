@@ -50,6 +50,7 @@ INSTALLED_APPS = [
 
     'products',
     'category',
+    'cart',
 ]
 
 # AUTH_USER_MODEL = 'allUsers.AllUser'
