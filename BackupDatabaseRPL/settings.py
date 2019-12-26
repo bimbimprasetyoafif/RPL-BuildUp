@@ -119,20 +119,6 @@ WSGI_APPLICATION = 'BackupDatabaseRPL.wsgi.application'
 #     }
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'sql_server.pyodbc',
-#         'NAME': 'rpl',
-#         'USER': 'rplyahut',
-#         'PASSWORD': 'bu1ldup!',
-#         'HOST': 'dicodingserverbimo.database.windows.net',
-#         'PORT': '',
-#         'OPTIONS': {
-#             'driver': 'ODBC Driver 17 for SQL Server',
-#         },
-#     }
-# }
-
 DATABASES = {
     'default': {
         'ENGINE': 'sql_server.pyodbc',
@@ -143,7 +129,7 @@ DATABASES = {
         'PORT': '',
         'OPTIONS': {
         #    'driver': 'SQL Server Native Client 11.0',
-            'driver': 'ODBC Driver 17 for SQL Server',
+            'driver': 'ODBC Driver 13 for SQL Server',
         },
     },
 }
