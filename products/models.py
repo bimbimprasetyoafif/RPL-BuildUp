@@ -14,7 +14,7 @@ class Products(models.Model):
     creator = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='allProduct', on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
-        return "{} - {} - {}".format(self.creator,self.ProductId,self.ProductName)
+        return "{} - {} - {}".format(self.creator,self.ProductName)
 
 class ProductImages(models.Model):
     ProdId = models.ForeignKey(Products, related_name="allImagesProduct", on_delete=models.CASCADE,)
