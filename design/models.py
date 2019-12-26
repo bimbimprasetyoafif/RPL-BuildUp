@@ -4,14 +4,14 @@ from category.models import CategorysHome
 # Create your models here.
 
 class Design(models.Model):
-    DesignId = models.AutoField(primary_key=True, editable=False)
+    DesignId = models.IntegerField(auto_created=True, primary_key=True, editable=False)
     category = models.ForeignKey(CategorysHome, related_name="DesignInCategory", on_delete=models.CASCADE)
     DesignName = models.CharField(max_length=50)
     DesignDesc = models.CharField(max_length=500)
     creator = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='allDesign', on_delete=models.CASCADE, null=True, blank=True)
 
 class RAB(models.Model):
-    RABId = models.AutoField(primary_key=True,editable=False)
+    RABId = models.IntegerField(auto_created=True, primary_key=True, editable=False)
     WorkName = models.CharField(max_length=50)
     PriceTotal = models.IntegerField()
 

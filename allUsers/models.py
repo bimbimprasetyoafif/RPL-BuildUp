@@ -42,7 +42,7 @@ class Account(AbstractBaseUser):
         (2, 'Vendor'),
         (3, 'Store'),
     )
-
+	id						= models.IntegerField(auto_created=True, primary_key=True, editable=False)
 	email 					= models.EmailField(verbose_name="email", max_length=60, unique=True)
 	username 				= models.CharField(max_length=30, unique=True)
 	date_joined				= models.DateTimeField(verbose_name='date joined', auto_now_add=True)
