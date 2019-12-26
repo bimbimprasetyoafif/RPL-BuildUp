@@ -31,7 +31,7 @@ public class MasukFragment extends Fragment {
                              Bundle savedInstanceState) {
         final View rootView, view;
         rootView = inflater.inflate(R.layout.fragment_masuk, container, false);
-        view = inflater.inflate(R.layout.activity_password, container, false);
+        view = inflater.inflate(R.layout.activity_lupa_password, container, false);
         // Inflate the layout for this fragment
         button = (Button) rootView.findViewById(R.id.buttonMasuk);
         button.setOnClickListener(new View.OnClickListener() {

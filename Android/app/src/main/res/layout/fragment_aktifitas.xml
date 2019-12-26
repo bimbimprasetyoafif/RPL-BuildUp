@@ -1,21 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AktifitasFragment">
 
     <LinearLayout
-        android:background="@color/colorPrimary"
         android:orientation="vertical"
+        android:layout_margin="25dp"
         android:layout_height="match_parent"
         android:layout_width="match_parent">
 
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="31dp"
+            android:layout_height="25dp"
+            android:src="@drawable/shape" />
+
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Aktifitas Fragment" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/josefin_sans"
+            android:text="Aktivitas Saya"
+            android:textColor="@android:color/black"
+            android:textSize="25dp"
+            android:textStyle="bold" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#E9E9E9"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:fontFamily="@font/josefin_sans"
+                android:textColor="@android:color/black"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:text="Rumah Modern - Tipe 36"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="15dp"
+                android:text="Pesanan rumahmu masih menunggu konfirmasi nih! Ditunggu ya..." />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#E9E9E9"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:fontFamily="@font/josefin_sans"
+                android:textColor="@android:color/black"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:text="Indocement - Surabaya"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="15dp"
+                android:text="Masih di jalan" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#E9E9E9"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:fontFamily="@font/josefin_sans"
+                android:textColor="@android:color/black"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:text="Rumah Modern - Tipe 54"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="15dp"
+                android:text="Pesanan rumahmu dikonformasi! Yuk hubungi vendornya sekarang" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#E9E9E9"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:fontFamily="@font/josefin_sans"
+                android:textColor="@android:color/black"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:text="Rumah Modern - Tipe 54"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="15dp"
+                android:text="Rumahmu sudah jadi, persiapan buat pindah sekarang juga!" />
+        </LinearLayout>
     </LinearLayout>
 
 </RelativeLayout>
