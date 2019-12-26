@@ -130,7 +130,8 @@ DATABASES = {
         'OPTIONS': {
             'driver': 'ODBC Driver 13 for SQL Server',
         },
-  
+    }
+}
 
 # DATABASES = {
 #     'default': {
