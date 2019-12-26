@@ -10,7 +10,6 @@ from rest_framework.decorators import api_view, authentication_classes, permissi
 
 from api.helper import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 
-
 # from rest_framework.permissions import AllowAny
 # from django.views.decorators.csrf import csrf_exempt
 from rest_framework.status import (
@@ -34,7 +33,6 @@ from .models import Account
 from rest_framework.authtoken.models import Token
 
 # Register
-# Response: https://gist.github.com/mitchtabian/c13c41fa0f51b304d7638b7bac7cb694
 # Url: https://<your-domain>/api/register
 @api_view(['POST', ])
 @permission_classes([])
@@ -45,13 +43,15 @@ def registration_view(request):
 		data = {}
 		email = request.data.get('email', '0').lower()
 		if validate_email(email) != None:
-			data['error_message'] = 'That email is already in use.'
+			data['status'] = 0
+			data['message'] = 'Email Sudah Ada.'
 			data['response'] = 'Error'
 			return Response(data)
 
 		username = request.data.get('username', '0')
 		if validate_username(username) != None:
-			data['error_message'] = 'That username is already in use.'
+			data['status'] = 0
+			data['message'] = 'Username Sudah Ada.'
 			data['response'] = 'Error'
 			return Response(data)
 
@@ -59,6 +59,7 @@ def registration_view(request):
 		
 		if serializer.is_valid():
 			allUsers = serializer.save()
+			data['status'] = 1
 			data['response'] = 'success'
 			data['email'] = allUsers.email
 			data['username'] = allUsers.username
@@ -84,13 +85,15 @@ def registration_vendor_view(request):
 		data = {}
 		email = request.data.get('email', '0').lower()
 		if validate_email(email) != None:
-			data['error_message'] = 'That email is already in use.'
+			data['status'] = 0
+			data['message'] = 'Email Sudah Ada.'
 			data['response'] = 'Error'
 			return Response(data)
 
 		username = request.data.get('username', '0')
 		if validate_username(username) != None:
-			data['error_message'] = 'That username is already in use.'
+			data['status'] = 0
+			data['message'] = 'Username Sudah Ada.'
 			data['response'] = 'Error'
 			return Response(data)
 
@@ -98,6 +101,7 @@ def registration_vendor_view(request):
 		
 		if serializer.is_valid():
 			allUsers = serializer.save()
+			data['status'] = 1
 			data['response'] = 'success'
 			data['email'] = allUsers.email
 			data['username'] = allUsers.username
@@ -122,13 +126,15 @@ def registration_store_view(request):
 		data = {}
 		email = request.data.get('email', '0').lower()
 		if validate_email(email) != None:
-			data['error_message'] = 'That email is already in use.'
+			data['status'] = 0
+			data['message'] = 'Email Sudah Ada.'
 			data['response'] = 'Error'
 			return Response(data)
 
 		username = request.data.get('username', '0')
 		if validate_username(username) != None:
-			data['error_message'] = 'That username is already in use.'
+			data['status'] = 0
+			data['message'] = 'Username Sudah Ada.'
 			data['response'] = 'Error'
 			return Response(data)
 
@@ -136,6 +142,7 @@ def registration_store_view(request):
 		
 		if serializer.is_valid():
 			allUsers = serializer.save()
+			data['status'] = 1
 			data['response'] = 'success'
 			data['email'] = allUsers.email
 			data['username'] = allUsers.username
@@ -206,7 +213,8 @@ class toko_properties_all_view(ListCreateAPIView):
 class toko_properties_all_view_specific(RetrieveUpdateDestroyAPIView):
 	serializer_class = AccountAllPropertiesSerializer
 	content = {
-                'status': 'Not Found'
+                'status': 0,
+				'message':'Tidak ditemukan'
             }
 	def get_queryset(self, pk):
 		
@@ -235,7 +243,8 @@ class vendor_properties_all_view(ListCreateAPIView):
 class vendor_properties_all_view_specific(ListCreateAPIView):
 	serializer_class = AccountAllPropertiesSerializer
 	content = {
-                'status': 'Not Found'
+                'status': 0,
+				'message':'Tidak Ditemukan'
             }
 	def get_queryset(self, pk):
 		account = Account.objects.get(pk=pk, role=2)
@@ -263,6 +272,7 @@ def update_account_view(request):
 		data = {}
 		if serializer.is_valid():
 			serializer.save()
+			data['status'] = 1
 			data['response'] = 'success'
 			data['data'] = serializer.data
 			return Response(data=data)
@@ -293,9 +303,6 @@ def update_account_view(request):
 
 class ObtainAuthTokenView(APIView):
 
-	authentication_classes = []
-	permission_classes = []
-
 	def post(self, request):
 		context = {}
 
@@ -307,14 +314,16 @@ class ObtainAuthTokenView(APIView):
 				token = Token.objects.get(user=allUsers)
 			except Token.DoesNotExist:
 				token = Token.objects.create(user=allUsers)
+			context['status'] = 1
 			context['response'] = 'Success'
 			context['pk'] = allUsers.pk
 			context['username'] = allUsers.username
 			context['email'] = allUsers.email
 			context['token'] = token.key
 		else:
+			context['status'] = 0
+			context['message'] = 'Invalid Credentials.'
 			context['response'] = 'Error'
-			context['error_message'] = 'Invalid credentials'
 			return Response(context,status=HTTP_203_NON_AUTHORITATIVE_INFORMATION)
 
 		return Response(context,status=HTTP_202_ACCEPTED)
@@ -331,7 +340,7 @@ def does_account_exist_view(request):
 	try:
 		try:
 			allUsers = Account.objects.get(email=email)
-			data['response'] = 1
+			data['status'] = 1
 			data['email'] = email
 			data['username'] = allUsers.username
 			data['id'] = allUsers.pk
