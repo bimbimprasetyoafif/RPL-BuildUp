@@ -25,7 +25,7 @@ SECRET_KEY = 'ng2awbwtrch&fxl-4i4atu1h)2honh-jn6ku=+!tl_is*+4&tm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['build-up.azurewebsites.net',]
+ALLOWED_HOSTS = ['build-up.azurewebsites.net','localhost','127.0.0.1']
 
 
 # Application definition
@@ -112,27 +112,27 @@ WSGI_APPLICATION = 'BackupDatabaseRPL.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'sql_server.pyodbc',
-        'NAME': 'rpl',
-        'USER': 'bimo@dicodingserverbimo',
-        'PASSWORD': 'bu1ldup!',
-        'HOST': 'dicodingserverbimo.database.windows.net',
-        'PORT': '',
-        'OPTIONS': {
-        #    'driver': 'SQL Server Native Client 11.0',
-            'driver': 'ODBC Driver 13 for SQL Server',
-        },
-    },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'sql_server.pyodbc',
+#         'NAME': 'rpl',
+#         'USER': 'bimo@dicodingserverbimo',
+#         'PASSWORD': 'bu1ldup!',
+#         'HOST': 'dicodingserverbimo.database.windows.net',
+#         'PORT': '',
+#         'OPTIONS': {
+#         #    'driver': 'SQL Server Native Client 11.0',
+#             'driver': 'ODBC Driver 13 for SQL Server',
+#         },
+#     },
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators

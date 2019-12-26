@@ -4,7 +4,7 @@ from category.models import Categorys
 
 # Create your models here.
 class Products(models.Model):
-    ProductId = models.IntegerField(auto_created=True, primary_key=True, editable=False)
+    ProductId = models.AutoField(auto_created=True, primary_key=True, editable=False)
     ProductCategory = models.ForeignKey(Categorys,related_name='ProductInCategory', on_delete=models.CASCADE)
     ProductName = models.CharField(max_length=50)
     ProductDesc = models.CharField(max_length=500)

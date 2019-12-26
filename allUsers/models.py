@@ -42,7 +42,6 @@ class Account(AbstractBaseUser):
         (2, 'Vendor'),
         (3, 'Store'),
     )
-	id						= models.IntegerField(auto_created=True, primary_key=True, editable=False)
 	email 					= models.EmailField(verbose_name="email", max_length=60, unique=True)
 	username 				= models.CharField(max_length=30, unique=True)
 	date_joined				= models.DateTimeField(verbose_name='date joined', auto_now_add=True)
@@ -51,7 +50,7 @@ class Account(AbstractBaseUser):
 	is_active				= models.BooleanField(default=True)
 	is_staff				= models.BooleanField(default=False)
 	is_superuser			= models.BooleanField(default=False)
-	role					= models.IntegerField(choices=ROLE, blank=True)
+	role					= models.IntegerField(choices=ROLE, blank=True, null=True)
 	nik						= models.CharField(max_length=20, blank=True)
 	name					= models.CharField(max_length=50)
 	address					= models.CharField(max_length=50)
