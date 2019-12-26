@@ -1,11 +1,13 @@
 from .models import Categorys,CategorysHome
 from api.helper import ListCreateAPIView, RetrieveUpdateDestroyAPIView
+from api.permissions import IsAuthenticated, IsOwnerOrReadOnly
 from .serializers import CategorySerializer,CategoryHomeSerializer
 # Create your views here.
 
 class ListCreateAllCategory(ListCreateAPIView):
     serializer_class = CategorySerializer
-    
+    permission_classes = (IsAuthenticated,)
+
     def get_queryset(self):
        objek = Categorys.objects.all()
        return objek
@@ -15,6 +17,7 @@ class ListCreateAllCategory(ListCreateAPIView):
 
 class ListUpdateDeleteSpecificCategory(RetrieveUpdateDestroyAPIView):
     serializer_class = CategorySerializer
+    permission_classes = (IsAuthenticated,)
     content = {
                 'status': 'Not Found'
             }

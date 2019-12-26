@@ -3,7 +3,7 @@ from .models import Categorys,CategorysHome
 from products.serializers import ProductSerializer
 
 class CategorySerializer(serializers.ModelSerializer):
-    ProductInCategory = ProductSerializer(many=True)
+    ProductInCategory = ProductSerializer(many=True, read_only=True)
     class Meta:
         model = Categorys
         fields = "__all__"

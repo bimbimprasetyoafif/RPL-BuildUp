@@ -14,9 +14,18 @@ from allUsers.views import(
 	ChangePasswordView,
 )
 from rest_framework.authtoken.views import obtain_auth_token
-from products.views import ListCreateAllProduct,ListUpdateDeleteSpecificProduct, FileUploadView
+from products.views import (
+    ListCreateAllProduct,
+    ListUpdateDeleteSpecificProduct, 
+    FileUploadView,
+)
 
-from category.views import ListCreateAllCategory, ListUpdateDeleteSpecificCategory, ListCreateAllCategoryHome, ListUpdateDeleteSpecificCategoryHome
+from category.views import (
+    ListCreateAllCategory, 
+    ListUpdateDeleteSpecificCategory, 
+    ListCreateAllCategoryHome, 
+    ListUpdateDeleteSpecificCategoryHome,
+)
 # from .views import CustomLoginView, RegisterView
 
 urlpatterns = [
