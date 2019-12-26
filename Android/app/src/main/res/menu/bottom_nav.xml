@@ -2,21 +2,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/toko"
-        android:title="Toko"
-        android:icon="@drawable/ic_action_toko"
+        android:id="@+id/bangunan"
+        android:title="Bangunan"
+        android:icon="@drawable/bangunan"
         ></item>
 
     <item
-        android:id="@+id/bangunan"
-        android:title="Bangunan"
-        android:icon="@drawable/ic_action_bangunan"
+        android:id="@+id/toko"
+        android:title="Toko"
+        android:icon="@drawable/toko"
         ></item>
 
     <item
         android:id="@+id/aktifitas"
         android:title="Aktifitas"
-        android:icon="@drawable/ic_action_aktifitas"
+        android:icon="@drawable/aktifitas"
         ></item>
 
     <item
