@@ -10,6 +10,8 @@ from api.permissions import IsAuthenticated, IsOwnerOrReadOnly
 from allUsers.models import Account
 # Create your views here.
 
+
+
 class ListCreateAllProduct(ListCreateAPIView):
     serializer_class = ProductSerializer
     permission_classes = (IsAuthenticated,)

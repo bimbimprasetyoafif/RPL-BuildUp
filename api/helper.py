@@ -4,19 +4,22 @@ from rest_framework.generics import (
     RetrieveUpdateDestroyAPIView, 
     ListCreateAPIView
 )
+from api.pagination import CustomPagination
 
 # =================
 # Overview
 # =================
 
-
 def get_all(self, request):
     data = self.get_queryset()
-    serializer = self.serializer_class(data, many=True)
+
+    paginate_queryset = self.paginate_queryset(data)
+    serializer = self.serializer_class(paginate_queryset, many=True)
+
     if serializer == None:
             return Response(self.content, status=status.HTTP_404_NOT_FOUND)
     else:
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        return self.get_paginated_response(serializer.data)
 
 def post_new(self, request):
     serializer = self.serializer_class(data=request.data)
