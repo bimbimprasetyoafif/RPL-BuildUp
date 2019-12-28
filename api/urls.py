@@ -12,6 +12,7 @@ from allUsers.views import(
 	update_account_view,
 	does_account_exist_view,
 	ChangePasswordView,
+    FileAccountUploadView,
 )
 from rest_framework.authtoken.views import obtain_auth_token
 from products.views import (
@@ -47,6 +48,7 @@ urlpatterns = [
 	path('register/', registration_view, name="register"),
     path('vendor/register/', registration_vendor_view, name="register"),
     path('toko/register/', registration_store_view, name="register"),
+    path('toko/register/upload/', FileAccountUploadView.as_view()),
 
     path('produk/',ListCreateAllProduct.as_view()),
     path('produk/gambar/upload/',FileUploadView.as_view()),

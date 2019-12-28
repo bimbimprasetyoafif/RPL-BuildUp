@@ -29,7 +29,7 @@ class ListCreateAllProduct(ListAPIView):
     search_fields = ['ProductName',]
 
     # from api.helper import get_all as get
-    # from api.helper import post_new_product_or_desain as post
+    from api.helper import post_new_product_or_desain as post
 
 class ListUpdateDeleteSpecificProduct(RetrieveUpdateDestroyAPIView):
     serializer_class = ProductSerializer
@@ -50,7 +50,6 @@ class ListUpdateDeleteSpecificProduct(RetrieveUpdateDestroyAPIView):
 class FileUploadView(APIView):
     parser_class = (FileUploadParser,)
     permission_classes = (IsAuthenticated, IsOwnerOrReadOnly,)
-
     def post(self, request, *args, **kwargs):
         data = {}
         file_serializer = ProductImagesSerializer(data=request.data)

@@ -1,15 +1,21 @@
 from rest_framework import serializers
-from .models import Account
+from .models import Account, ImageUser
 from products.serializers import ProductSerializer
+
+class ImagesSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = ImageUser
+        fields = "__all__"
 
 
 class RegistrationSerializer(serializers.ModelSerializer):
 
 	password2 				= serializers.CharField(style={'input_type': 'password'}, write_only=True)
-
+	image = ImagesSerializer(many=True, read_only=True)
 	class Meta:
 		model = Account
-		fields = ['email', 'username', 'password', 'password2', 'nik', 'name','address','phone']
+		fields = ['email', 'username', 'password', 'password2', 'nik', 'name','address','phone','image']
 		extra_kwargs = {
 				'password': {'write_only': True},
 		}	
@@ -37,10 +43,11 @@ class RegistrationSerializer(serializers.ModelSerializer):
 class RegistrationVendorSerializer(serializers.ModelSerializer):
 
 	password2 				= serializers.CharField(style={'input_type': 'password'}, write_only=True)
+	image = ImagesSerializer(many=True, read_only=True)
 
 	class Meta:
 		model = Account
-		fields = ['email', 'username', 'password', 'password2', 'nik', 'name','address','phone','role']
+		fields = ['email', 'username', 'password', 'password2', 'nik', 'name','address','phone','role','image']
 		extra_kwargs = {
 				'password': {'write_only': True},
 		}	
@@ -68,10 +75,10 @@ class RegistrationVendorSerializer(serializers.ModelSerializer):
 class RegistrationStoreSerializer(serializers.ModelSerializer):
 
 	password2 				= serializers.CharField(style={'input_type': 'password'}, write_only=True)
-
+	image = ImagesSerializer(many=True, read_only=True)
 	class Meta:
 		model = Account
-		fields = ['email', 'username', 'password', 'password2', 'nik', 'name','address','phone']
+		fields = ['email', 'username', 'password', 'password2', 'nik', 'name','address','phone','image']
 		extra_kwargs = {
 				'password': {'write_only': True},
 		}	
@@ -98,12 +105,14 @@ class RegistrationStoreSerializer(serializers.ModelSerializer):
 
 
 class AccountPropertiesSerializer(serializers.ModelSerializer):
+	image = ImagesSerializer(many=True, read_only=True)
 	class Meta:
 		model = Account
 		fields = ['id', 'email', 'role','username', 'date_joined','last_login','nik','name','address','phone','image']
 
 
 class AccountAllPropertiesSerializer(serializers.ModelSerializer):
+	image = ImagesSerializer(read_only=True)
 	allProduct = ProductSerializer(many=True, read_only=True)
 	class Meta:
 		model = Account
@@ -116,3 +125,4 @@ class ChangePasswordSerializer(serializers.Serializer):
 	old_password 				= serializers.CharField(required=True)
 	new_password 				= serializers.CharField(required=True)
 	confirm_new_password 		= serializers.CharField(required=True)
+

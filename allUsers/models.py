@@ -53,9 +53,8 @@ class Account(AbstractBaseUser):
 	role					= models.IntegerField(choices=ROLE, blank=True, null=True)
 	nik						= models.CharField(max_length=20, blank=True)
 	name					= models.CharField(max_length=50)
-	address					= models.CharField(max_length=50)
+	address					= models.CharField(max_length=500)
 	phone					= models.CharField(max_length=50)
-	image		 			= models.ImageField(blank=False, null=True)
 
 
 	USERNAME_FIELD = 'username'
@@ -79,6 +78,14 @@ class Account(AbstractBaseUser):
 def create_auth_token(sender, instance=None, created=False, **kwargs):
     if created:
         Token.objects.create(user=instance)
+	
+class ImageUser(models.Model):
+	AccId = models.OneToOneField(Account, related_name="image", on_delete=models.CASCADE,)
+	Image = models.ImageField(blank=False, null=False)
+
+	def __str__(self):
+		return "{} - {}".format(self.AccId, self.Image)
+    
 
 
 

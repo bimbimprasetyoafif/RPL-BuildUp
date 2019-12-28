@@ -1,9 +1,11 @@
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
-from rest_framework.permissions import IsAuthenticated
+# from rest_framework.permissions import IsAuthenticated
+from api.permissions import IsOwnerOrReadOnly, IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework.generics import UpdateAPIView
+from rest_framework.parsers import FileUploadParser
 from django.contrib.auth import authenticate
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
@@ -27,9 +29,10 @@ from .serializers import (
 	RegistrationVendorSerializer,
 	AccountPropertiesSerializer,
 	AccountAllPropertiesSerializer, 
-	ChangePasswordSerializer
+	ChangePasswordSerializer,
+	ImagesSerializer
 )
-from .models import Account
+from .models import Account, ImageUser
 from rest_framework.authtoken.models import Token
 
 # Register
@@ -386,3 +389,28 @@ class ChangePasswordView(UpdateAPIView):
 			return Response({"response":"successfully changed password"}, status=status.HTTP_200_OK)
 
 		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class FileAccountUploadView(APIView):
+    parser_class = (FileUploadParser,)
+    permission_classes = (IsAuthenticated, IsOwnerOrReadOnly,)
+
+    def post(self, request, *args, **kwargs):
+        data = {}
+        file_serializer = ImagesSerializer(data=request.data)
+        idProd = request.data.get('AccId')
+		
+        pkInProduk = Account.objects.get(id=idProd)
+        if(pkInProduk.id == request.user.id):
+			
+            if file_serializer.is_valid():
+                file_serializer.save()
+                data["status"] = 1
+                data["response"] = "succes upload"
+                return Response(data, status=status.HTTP_201_CREATED)
+            else:
+                return Response(file_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        else:
+            data["status"] = 0
+            data["response"] = "UNAUTHORIZED"
+            return Response(data,status=status.HTTP_401_UNAUTHORIZED)
