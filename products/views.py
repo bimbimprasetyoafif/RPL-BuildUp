@@ -1,8 +1,13 @@
 from .models import Products
 from rest_framework import status
+from rest_framework.filters import SearchFilter, OrderingFilter
+
+from django_filters.rest_framework import DjangoFilterBackend
+
 from rest_framework.response import Response
 from rest_framework.parsers import FileUploadParser
 from rest_framework.views import APIView
+from rest_framework.generics import ListAPIView
 from api.helper import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from .serializers import ProductSerializer, ProductImagesSerializer
 from api.permissions import IsAuthenticated, IsOwnerOrReadOnly
@@ -10,18 +15,21 @@ from api.permissions import IsAuthenticated, IsOwnerOrReadOnly
 from allUsers.models import Account
 # Create your views here.
 
-
-
-class ListCreateAllProduct(ListCreateAPIView):
+class ListCreateAllProduct(ListAPIView):
     serializer_class = ProductSerializer
     permission_classes = (IsAuthenticated,)
     
-    def get_queryset(self):
-       produk = Products.objects.all()
-       return produk
+    # def get_queryset(self):
+    #     produk = Products.objects.all()
+    #     filter_backends = [SearchFilter, OrderingFilter]
+    #     search_fields = ['ProductName',]
+    #     return produk
+    queryset = Products.objects.all()
+    filter_backends = (SearchFilter, OrderingFilter)
+    search_fields = ['ProductName',]
 
-    from api.helper import get_all as get
-    from api.helper import post_new as post
+    # from api.helper import get_all as get
+    # from api.helper import post_new_product_or_desain as post
 
 class ListUpdateDeleteSpecificProduct(RetrieveUpdateDestroyAPIView):
     serializer_class = ProductSerializer

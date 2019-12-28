@@ -13,7 +13,7 @@ class ListCreateAllCategory(ListCreateAPIView):
        return objek
 
     from api.helper import get_all as get
-    from api.helper import post_new as post
+    from api.helper import post_Category as post
 
 class ListUpdateDeleteSpecificCategory(RetrieveUpdateDestroyAPIView):
     serializer_class = CategorySerializer

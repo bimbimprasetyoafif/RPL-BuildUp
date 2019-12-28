@@ -25,7 +25,8 @@ SECRET_KEY = 'ng2awbwtrch&fxl-4i4atu1h)2honh-jn6ku=+!tl_is*+4&tm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['build-up.azurewebsites.net','localhost','127.0.0.1']
+# ALLOWED_HOSTS = ['build-up.azurewebsites.net','localhost','127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -74,6 +75,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     ),
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 200
 }
