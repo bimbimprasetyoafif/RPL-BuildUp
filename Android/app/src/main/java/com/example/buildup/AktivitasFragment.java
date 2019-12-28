@@ -13,10 +13,10 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AktifitasFragment extends Fragment {
+public class AktivitasFragment extends Fragment {
 
 
-    public AktifitasFragment() {
+    public AktivitasFragment() {
         // Required empty public constructor
     }
 
@@ -25,7 +25,7 @@ public class AktifitasFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_aktifitas, container, false);
+        return inflater.inflate(R.layout.fragment_aktivitas, container, false);
     }
 
 }

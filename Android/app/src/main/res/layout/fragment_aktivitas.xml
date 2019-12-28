@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context=".AktifitasFragment">
+    tools:context=".AktivitasFragment">
 
     <LinearLayout
         android:orientation="vertical"
@@ -14,16 +14,12 @@
         android:layout_width="match_parent">
 
 
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="31dp"
-            android:layout_height="25dp"
-            android:src="@drawable/shape" />
+
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="50dp"
             android:fontFamily="@font/josefin_sans"
             android:text="Aktivitas Saya"
             android:textColor="@android:color/black"
