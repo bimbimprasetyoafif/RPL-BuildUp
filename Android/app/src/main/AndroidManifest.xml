@@ -11,6 +11,14 @@
         android:roundIcon="@mipmap/logo1"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".EstimasiActivity"></activity>
+        <activity android:name=".FormActivity" />
+        <activity android:name=".VendorActivity" />
+        <activity android:name=".DeskripsiRumahActivity" />
+        <activity android:name=".CheckoutActivity" />
+        <activity android:name=".KeranjangActivity" />
+        <activity android:name=".TokoActivity" />
+        <activity android:name=".DeskripsiBarangActivity" />
         <activity android:name=".LupaPasswordActivity" /> <!-- <activity android:name=".Profil" /> -->
         <activity android:name=".MenuActivity" />
         <activity
