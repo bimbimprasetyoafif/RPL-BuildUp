@@ -44,7 +44,7 @@ public class MenuActivity extends AppCompatActivity {
                 }
 
                 if(id == R.id.aktifitas){
-                    AktifitasFragment fragment = new AktifitasFragment();
+                    AktivitasFragment fragment = new AktivitasFragment();
                     FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.frame_layout, fragment);
                     fragmentTransaction.commit();
