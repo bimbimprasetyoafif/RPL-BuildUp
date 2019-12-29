@@ -13,6 +13,7 @@ from allUsers.views import(
 	does_account_exist_view,
 	ChangePasswordView,
     FileAccountUploadView,
+    login,
 )
 from rest_framework.authtoken.views import obtain_auth_token
 from products.views import (
@@ -38,7 +39,8 @@ urlpatterns = [
 	path('profile/change_password/', ChangePasswordView.as_view(), name="change_password"), #ganti pass
 	path('profile/me/', account_properties_view, name="properties"), #lihat profile
 	path('profile/update/', update_account_view, name="update"), #update profile
- 	path('profile/login/', ObtainAuthTokenView.as_view(), name="login"), #login semua user
+ 	# path('profile/login/', ObtainAuthTokenView.as_view(), name="login"), #login semua user
+     path('profile/login/', login, name="login"), #login semua user
 
     path('toko/', toko_properties_all_view.as_view()),
     path('toko/<int:pk>/',toko_properties_all_view_specific.as_view()),

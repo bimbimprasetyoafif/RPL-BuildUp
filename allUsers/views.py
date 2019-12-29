@@ -12,7 +12,7 @@ from rest_framework.decorators import api_view, authentication_classes, permissi
 
 from api.helper import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 
-# from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny
 # from django.views.decorators.csrf import csrf_exempt
 from rest_framework.status import (
     HTTP_400_BAD_REQUEST,
@@ -288,27 +288,32 @@ def update_account_view(request):
 # URL: http://127.0.0.1:8000/api/allUsers/login
 
 # @csrf_exempt
-# @api_view(["POST"])
-# @permission_classes((AllowAny,))
-# def login(request):
-#     username = request.data.get("username")
-#     password = request.data.get("password")
-#     if username is None or password is None:
-#         return Response({'error': 'Please provide both username and password'},
-#                         status=HTTP_400_BAD_REQUEST)
-#     user = authenticate(username=username, password=password)
-#     if not user:
-#         return Response({'error': 'Invalid Credentials'},
-#                         status=HTTP_404_NOT_FOUND)
-#     token, _ = Token.objects.get_or_create(user=user)
-#     return Response({'token': token.key},
-#                     status=HTTP_200_OK)
+@api_view(["POST"])
+@permission_classes((AllowAny,))
+def login(request):
+    username = request.data.get("username")
+    password = request.data.get("password")
+    if username is None or password is None:
+        return Response({'status': 0,
+		 'response': 'Please provide both username and password'},
+                        status=HTTP_400_BAD_REQUEST)
+    user = authenticate(username=username, password=password)
+    if not user:
+        return Response({'status': 0,
+		 'response': 'Invalid Credentials'},
+                        status=HTTP_404_NOT_FOUND)
+    token, _ = Token.objects.get_or_create(user=user)
+    return Response({'status': 1,
+		 'response': 'success',
+		 'pk':user.pk,
+		 'token': token.key},
+                    status=HTTP_200_OK)
 
 class ObtainAuthTokenView(APIView):
 
 	def post(self, request):
 		context = {}
-
+		print("disini")
 		email = request.data.get('email')
 		password = request.data.get('password')
 		allUsers = authenticate(username=email, password=password)
