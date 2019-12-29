@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.buildup">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/logo"
@@ -9,8 +11,16 @@
         android:roundIcon="@mipmap/logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LupaPasswordActivity"></activity>
-        <activity android:name=".Profil" />
+
+        <activity android:name=".EstimasiActivity"></activity>
+        <activity android:name=".FormActivity" />
+        <activity android:name=".VendorActivity" />
+        <activity android:name=".DeskripsiRumahActivity" />
+        <activity android:name=".CheckoutActivity" />
+        <activity android:name=".KeranjangActivity" />
+        <activity android:name=".TokoActivity" />
+        <activity android:name=".DeskripsiBarangActivity" />
+        <activity android:name=".LupaPasswordActivity" /> <!-- <activity android:name=".Profil" /> -->
         <activity android:name=".MenuActivity" />
         <activity
             android:name=".MasukActivity"
