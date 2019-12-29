@@ -26,7 +26,10 @@ SECRET_KEY = 'ng2awbwtrch&fxl-4i4atu1h)2honh-jn6ku=+!tl_is*+4&tm'
 DEBUG = True
 
 # ALLOWED_HOSTS = ['build-up.azurewebsites.net','localhost','127.0.0.1']
-ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    'djangobimo.azurewebsites.net',
+]
 
 
 # Application definition
