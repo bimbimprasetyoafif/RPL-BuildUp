@@ -139,7 +139,7 @@ DATABASES = {
             'driver': 'ODBC Driver 13 for SQL Server',
         },
     },
-# }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
