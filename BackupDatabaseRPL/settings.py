@@ -116,26 +116,26 @@ WSGI_APPLICATION = 'BackupDatabaseRPL.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'sql_server.pyodbc',
-#         'NAME': 'rpl',
-#         'USER': 'bimo@dicodingserverbimo',
-#         'PASSWORD': 'bu1ldup!',
-#         'HOST': 'dicodingserverbimo.database.windows.net',
-#         'PORT': '',
-#         'OPTIONS': {
-#         #    'driver': 'SQL Server Native Client 11.0',
-#             'driver': 'ODBC Driver 13 for SQL Server',
-#         },
-#     },
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'sql_server.pyodbc',
+        'NAME': 'rpl',
+        'USER': 'bimo@dicodingserverbimo',
+        'PASSWORD': 'bu1ldup!',
+        'HOST': 'dicodingserverbimo.database.windows.net',
+        'PORT': '',
+        'OPTIONS': {
+        #    'driver': 'SQL Server Native Client 11.0',
+            'driver': 'ODBC Driver 13 for SQL Server',
+        },
+    },
 # }
 
 # Password validation
