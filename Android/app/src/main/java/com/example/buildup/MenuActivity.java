@@ -43,7 +43,7 @@ public class MenuActivity extends AppCompatActivity {
                     fragmentTransaction.commit();
                 }
 
-                if(id == R.id.aktifitas){
+                if(id == R.id.aktivitas){
                     AktivitasFragment fragment = new AktivitasFragment();
                     FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.frame_layout, fragment);
