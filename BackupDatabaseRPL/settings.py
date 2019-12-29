@@ -119,27 +119,27 @@ WSGI_APPLICATION = 'BackupDatabaseRPL.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'sql_server.pyodbc',
-        'NAME': 'rpl',
-        'USER': 'bimo@dicodingserverbimo',
-        'PASSWORD': 'bu1ldup!',
-        'HOST': 'dicodingserverbimo.database.windows.net',
-        'PORT': '',
-        'OPTIONS': {
-        #    'driver': 'SQL Server Native Client 11.0',
-            'driver': 'ODBC Driver 17 for SQL Server',
-        },
-    },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'sql_server.pyodbc',
+#         'NAME': 'rpl',
+#         'USER': 'bimo@dicodingserverbimo',
+#         'PASSWORD': 'bu1ldup!',
+#         'HOST': 'dicodingserverbimo.database.windows.net',
+#         'PORT': '',
+#         'OPTIONS': {
+#         #    'driver': 'SQL Server Native Client 11.0',
+#             'driver': 'ODBC Driver 17 for SQL Server',
+#         },
+#     },
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -181,4 +181,4 @@ STATIC_ROOT = '/'
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_URL = '/static/'
 MEDIA_URL =  '/media/'
-MEDIA_ROOT = os.path.join(PROJECT_DIR, "media")
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
