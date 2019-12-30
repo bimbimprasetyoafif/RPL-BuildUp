@@ -7,4 +7,15 @@
     <string name="tab_text_2">DAFTAR</string>
     <string name="title_activity_masuk">MasukActivity</string>
     <string name="nama_pengguna">Nama Pengguna</string>
+    <string-array name="Spinner_item">
+        <item>Tentang Kami</item>
+        <item>Pesatnya pertumbuhan hunian setiap tahunnya membuat pentingnya peran Jasa Kontraktor Rumah. Yaitu Jasa Kontraktor Rumah Profesional yang bisa memberi solusi, bukan hanya dapat membangun rumah atau merenovasi rumah, tetapi juga memberi solusi lain seperti kredit KPR dan kemudahan lainnya.
+
+Mitrarenov.com lahir untuk membantu Karyawan/Profesional/Pengusaha yang:
+● Tidak punya referensi Arsitek atau desain rumah yang kompeten
+● Tidak mengerti penghitungan RAB dalam membangun rumah
+● Sibuk bekerja sehingga tidak ada waktu memonitor pekerjaan pembangunan
+● Jauh antara lokasi yang akan dibangun dengan tempat tinggal saat ini
+● Kesulitan mengajukan pinjaman KPR ke Bank</item>
+    </string-array>
 </resources>
