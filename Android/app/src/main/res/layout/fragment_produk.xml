@@ -104,72 +104,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:layout_height="wrap_content">
 
             <RelativeLayout
+                android:id="@+id/layout_produk"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/imageView41"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_margin="20dp"
-                    android:layout_marginStart="40dp"
-                    android:layout_marginTop="40dp"
-                    android:layout_marginEnd="40dp"
-                    android:layout_marginBottom="40dp"
-                    android:src="@drawable/kotak_produk" />
-
-                <ImageView
-                    android:id="@+id/imageView42"
-                    android:layout_width="96dp"
-                    android:layout_height="96dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="28dp"
-                    android:src="@color/colorAccent" />
-
-                <TextView
-                    android:id="@+id/nama_produk"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/imageView42"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/josefin_sans"
-                    android:text="Nama Produk"
-                    android:textColor="@android:color/black"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/merk_produk"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/nama_produk"
-                    android:layout_centerHorizontal="true"
-                    android:fontFamily="@font/josefin_sans"
-                    android:text="Merk Produk"
-                    android:textColor="@android:color/black"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/harga_produk"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/merk_produk"
-                    android:layout_centerHorizontal="true"
-                    android:fontFamily="@font/josefin_sans"
-                    android:text="Harga Produk"
-                    android:textColor="@android:color/black"
-                    android:textStyle="bold" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="vertical"/>
             </RelativeLayout>
-        </LinearLayout>
+        </RelativeLayout>
     </ScrollView>
 
 </LinearLayout>

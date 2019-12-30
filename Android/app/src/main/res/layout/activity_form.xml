@@ -244,7 +244,7 @@
                 android:text="Lihat Rincian"
                 android:textStyle="bold"
                 android:textColor="@android:color/white"
-                android:background="@drawable/tm_biru"
+                android:background="@drawable/tm_biru"/>
         </LinearLayout>
 
     </ScrollView>
