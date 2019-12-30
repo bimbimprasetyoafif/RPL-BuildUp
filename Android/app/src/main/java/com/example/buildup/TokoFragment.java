@@ -1,6 +1,7 @@
 package com.example.buildup;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,13 +9,14 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class TokoFragment extends Fragment {
-
+    private RelativeLayout relativeLayout;
 
     public TokoFragment() {
         // Required empty public constructor
@@ -25,7 +27,18 @@ public class TokoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_toko, container, false);
+        final View rootView;
+        rootView = inflater.inflate(R.layout.fragment_toko, container, false);
+
+        relativeLayout = rootView.findViewById(R.id.perkakas);
+        relativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(rootView.getContext(), ProdukFragment.class));
+            }
+        });
+
+        return rootView;
     }
 
 }
