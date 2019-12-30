@@ -2,6 +2,7 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
 # from rest_framework.permissions import IsAuthenticated
+from rest_framework.filters import SearchFilter, OrderingFilter
 from api.permissions import IsOwnerOrReadOnly, IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework.generics import UpdateAPIView
@@ -197,20 +198,13 @@ def account_properties_view(request):
 		serializer = AccountPropertiesSerializer(allUsers)
 		return Response(serializer.data)
 
-# Url: https://<your-domain>/api/toko/
 @permission_classes((IsAuthenticated, ))
 class toko_properties_all_view(ListCreateAPIView):
 	serializer_class = AccountAllPropertiesSerializer
-
-	def get_queryset(self):
-		account = Account.objects.filter(role=3)
-		return account
+	queryset = Account.objects.filter(role=3)
+	filter_backends = (SearchFilter, OrderingFilter)
+	search_fields = ['name',]
 	
-	from api.helper import get_all as get
-	# try:
-	# 	allUsers = request.user
-	# except Account.DoesNotExist:
-	# 	return Response(status=status.HTTP_404_NOT_FOUND)
 
 @permission_classes((IsAuthenticated, ))
 class toko_properties_all_view_specific(RetrieveUpdateDestroyAPIView):
@@ -231,16 +225,9 @@ class toko_properties_all_view_specific(RetrieveUpdateDestroyAPIView):
 @permission_classes((IsAuthenticated, ))
 class vendor_properties_all_view(ListCreateAPIView):
 	serializer_class = AccountAllPropertiesSerializer
-
-	def get_queryset(self):
-		account = Account.objects.filter(role=2)
-		return account
-	
-	from api.helper import get_all as get
-	# try:
-	# 	allUsers = request.user
-	# except Account.DoesNotExist:
-	# 	return Response(status=status.HTTP_404_NOT_FOUND)
+	queryset = Account.objects.filter(role=2)
+	filter_backends = (SearchFilter, OrderingFilter)
+	search_fields = ['name',]
 
 @permission_classes((IsAuthenticated, ))
 class vendor_properties_all_view_specific(ListCreateAPIView):

@@ -47,8 +47,17 @@ def post_new_product_or_desain(self, request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)  
     else:
         return Response(respon, status=status.HTTP_401_UNAUTHORIZED)
-    
 
+def post_new_desain_rab_atau_material(self, request):
+    serializer = self.serializer_class(data=request.data)
+    if(request.user.role == 2):
+        
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)  
+    else:
+        return Response(respon, status=status.HTTP_401_UNAUTHORIZED)
 
 # cuman admin
 def post_Category(self, request):

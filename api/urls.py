@@ -21,7 +21,11 @@ from products.views import (
     ListUpdateDeleteSpecificProduct, 
     FileUploadView,
 )
-
+from design.views import (
+    ListCreateAllDesign,
+    ListUpdateDeleteSpecificDesign,
+    FileUploadDesignView,
+)
 from category.views import (
     ListCreateAllCategory, 
     ListUpdateDeleteSpecificCategory, 
@@ -50,14 +54,18 @@ urlpatterns = [
 	path('register/', registration_view, name="register"),
     path('vendor/register/', registration_vendor_view, name="register"),
     path('toko/register/', registration_store_view, name="register"),
-    path('toko/register/upload/', FileAccountUploadView.as_view()),
+    path('register/upload/', FileAccountUploadView.as_view()),
 
     path('produk/',ListCreateAllProduct.as_view()),
     path('produk/gambar/upload/',FileUploadView.as_view()),
     path('produk/<int:pk>/', ListUpdateDeleteSpecificProduct.as_view()),
 
-    # path('desain/',ListCreateAllProduct.as_view()),
-    # path('desain/gambar/upload',FileUploadView.as_view()),
+    path('desain/',ListCreateAllDesign.as_view()),
+    path('desain/<int:pk>', ListUpdateDeleteSpecificDesign.as_view()),
+    path('desain/gambar/upload',FileUploadDesignView.as_view()),
+    
+    # path('desain/rab/', ListUpdateDeleteSpecificProduct.as_view()),
+    # path('desain/material/', ListUpdateDeleteSpecificProduct.as_view()),
     # path('desain/<int:pk>', ListUpdateDeleteSpecificProduct.as_view()),
 
     path('kategori/',ListCreateAllCategory.as_view()),
