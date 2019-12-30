@@ -18,4 +18,41 @@ Mitrarenov.com lahir untuk membantu Karyawan/Profesional/Pengusaha yang:
 ● Jauh antara lokasi yang akan dibangun dengan tempat tinggal saat ini
 ● Kesulitan mengajukan pinjaman KPR ke Bank</item>
     </string-array>
+    
+    
+    
+
+    <string-array name="pilih_atap">
+        <item>Jenis Atap</item>
+        <item>Tanah Liat</item>
+        <item>Seng</item>
+        <item>Asbes</item>
+    </string-array>
+    <string-array name="pilih_plafon">
+        <item>Jenis Plafon</item>
+        <item>Triplek</item>
+        <item>Gypsum</item>
+    </string-array>
+    <string-array name="pilih_dinding">
+        <item>Jenis Dinding</item>
+        <item>Bata Merah</item>
+        <item>-</item>
+    </string-array>
+    <string-array name="pilih_lantai">
+        <item>Jenis Lantai</item>
+        <item>Kayu</item>
+        <item>Keramik</item>
+    </string-array>
+    <string-array name="pilih_cat_luar">
+        <item>Pilih Produk</item>
+        <item>Nippon Paint</item>
+        <item>-</item>
+        <item>-</item>
+    </string-array>
+    <string-array name="pilih_cat_dalam">
+        <item>Pilih Produk</item>
+        <item>Nippon Paint</item>
+        <item>-</item>
+        <item>-</item>
+    </string-array>
 </resources>
