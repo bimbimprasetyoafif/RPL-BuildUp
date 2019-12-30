@@ -42,7 +42,7 @@
                 <ImageView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:layout_marginRight="40dp"
+                    android:layout_marginRight="30dp"
                     android:src="@drawable/roof"/>
 
                 <LinearLayout
@@ -59,7 +59,13 @@
                         android:textStyle="bold"
                         android:text="Atap"/>
 
-
+                    <Spinner
+                        android:layout_width="170dp"
+                        android:layout_height="30dp"
+                        android:fontFamily="@font/josefin_sans"
+                        android:textColor="@android:color/black"
+                        android:textSize="16dp"
+                        android:entries="@array/pilih_atap" />
 
                 </LinearLayout>
 
@@ -76,7 +82,7 @@
                 <ImageView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:layout_marginRight="40dp"
+                    android:layout_marginRight="30dp"
                     android:src="@drawable/plafon"/>
 
                 <LinearLayout
@@ -93,7 +99,13 @@
                         android:textSize="20dp"
                         android:textStyle="bold" />
 
-
+                    <Spinner
+                        android:layout_width="170dp"
+                        android:layout_height="30dp"
+                        android:fontFamily="@font/josefin_sans"
+                        android:textColor="@android:color/black"
+                        android:textSize="16dp"
+                        android:entries="@array/pilih_plafon" />
 
                 </LinearLayout>
 
@@ -112,7 +124,7 @@
                 <ImageView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:layout_marginRight="40dp"
+                    android:layout_marginRight="30dp"
                     android:src="@drawable/dinding"/>
 
                 <LinearLayout
@@ -129,6 +141,13 @@
                         android:textSize="20dp"
                         android:textStyle="bold" />
 
+                    <Spinner
+                        android:layout_width="170dp"
+                        android:layout_height="30dp"
+                        android:fontFamily="@font/josefin_sans"
+                        android:textColor="@android:color/black"
+                        android:textSize="16dp"
+                        android:entries="@array/pilih_dinding" />
 
 
                 </LinearLayout>
@@ -137,16 +156,16 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="70dp"
                 android:layout_gravity="left"
+                android:layout_marginLeft="70dp"
                 android:layout_marginBottom="20dp"
                 android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:layout_marginRight="40dp"
-                    android:src="@drawable/lantai"/>
+                    android:layout_marginRight="30dp"
+                    android:src="@drawable/lantai" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -162,7 +181,13 @@
                         android:textSize="20dp"
                         android:textStyle="bold" />
 
-
+                    <Spinner
+                        android:layout_width="170dp"
+                        android:layout_height="30dp"
+                        android:fontFamily="@font/josefin_sans"
+                        android:textColor="@android:color/black"
+                        android:textSize="16dp"
+                        android:entries="@array/pilih_lantai" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -179,7 +204,7 @@
                 <ImageView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:layout_marginRight="40dp"
+                    android:layout_marginRight="30dp"
                     android:src="@drawable/cat"/>
 
                 <LinearLayout
@@ -196,7 +221,13 @@
                         android:textSize="20dp"
                         android:textStyle="bold" />
 
-
+                    <Spinner
+                        android:layout_width="170dp"
+                        android:layout_height="30dp"
+                        android:fontFamily="@font/josefin_sans"
+                        android:textColor="@android:color/black"
+                        android:textSize="16dp"
+                        android:entries="@array/pilih_cat_luar" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -213,7 +244,7 @@
                 <ImageView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:layout_marginRight="40dp"
+                    android:layout_marginRight="30dp"
                     android:src="@drawable/cat"/>
 
                 <LinearLayout
@@ -230,7 +261,13 @@
                         android:textSize="20dp"
                         android:textStyle="bold" />
 
-
+                    <Spinner
+                        android:layout_width="170dp"
+                        android:layout_height="30dp"
+                        android:fontFamily="@font/josefin_sans"
+                        android:textColor="@android:color/black"
+                        android:textSize="16dp"
+                        android:entries="@array/pilih_cat_dalam" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -241,6 +278,7 @@
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginBottom="10dp"
+                android:layout_marginTop="20dp"
                 android:text="Lihat Rincian"
                 android:textStyle="bold"
                 android:textColor="@android:color/white"
