@@ -156,6 +156,7 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/semen"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:padding="8dp">
@@ -188,6 +189,7 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/pasir"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:padding="8dp">
@@ -228,6 +230,7 @@
                     android:orientation="horizontal">
 
                     <RelativeLayout
+                        android:id="@+id/pipa"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:padding="8dp">
@@ -261,6 +264,7 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/cat"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:padding="8dp">
@@ -294,6 +298,7 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/keramik"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:padding="8dp">
@@ -334,6 +339,7 @@
                     android:orientation="horizontal">
 
                     <RelativeLayout
+                        android:id="@+id/kayu"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:padding="8dp">
@@ -367,6 +373,7 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/bata"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:padding="8dp">
@@ -400,6 +407,7 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/batu"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:padding="8dp">
