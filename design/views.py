@@ -30,14 +30,14 @@ from .serializers import (
     MaterialPlafonSerializer,
     MaterialAtapSerializer,
     )
-from api.permissions import IsAuthenticated, IsOwnerOrReadOnly
+from api.permissions import  IsOwnerOrReadOnly
 
 from allUsers.models import Account
 # Create your views here.
 
 class ListCreateAllDesign(ListAPIView):
     serializer_class = DesignSerializer
-    permission_classes = (IsAuthenticated,)
+    permission_classes = ()
     
     # def get_queryset(self):
     #     produk = Products.objects.all()
@@ -53,7 +53,7 @@ class ListCreateAllDesign(ListAPIView):
 
 class ListUpdateDeleteSpecificDesign(RetrieveUpdateDestroyAPIView):
     serializer_class = DesignSerializer
-    permission_classes = (IsAuthenticated, IsOwnerOrReadOnly,)
+    permission_classes = ( IsOwnerOrReadOnly,)
     content = {
                 'status': 'Not Found'
             }
@@ -68,7 +68,7 @@ class ListUpdateDeleteSpecificDesign(RetrieveUpdateDestroyAPIView):
 
 class FileUploadDesignView(APIView):
     parser_class = (FileUploadParser,)
-    permission_classes = (IsAuthenticated, IsOwnerOrReadOnly,)
+    permission_classes = ( IsOwnerOrReadOnly,)
     def post(self, request, *args, **kwargs):
         data = {}
         file_serializer = DesignImagesSerializer(data=request.data)
@@ -91,7 +91,7 @@ class FileUploadDesignView(APIView):
 
 class ListCreateAllDesignRAB(ListAPIView):
     serializer_class = DesignRABSerializer
-    permission_classes = (IsAuthenticated,)
+    permission_classes = ()
     
     def get_queryset(self):
         produk = RAB.objects.all()
@@ -107,7 +107,7 @@ class ListCreateAllDesignRAB(ListAPIView):
 
 class ListUpdateDeleteSpecificDesign(RetrieveUpdateDestroyAPIView):
     serializer_class = DesignRABSerializer
-    permission_classes = (IsAuthenticated, IsOwnerOrReadOnly,)
+    permission_classes = ( IsOwnerOrReadOnly,)
     content = {
                 'status': 'Not Found'
             }
@@ -124,7 +124,7 @@ class ListUpdateDeleteSpecificDesign(RetrieveUpdateDestroyAPIView):
 
 class ListCreateAllDesignMaterialDinding(ListAPIView):
     serializer_class = MaterialDindingSerializer
-    permission_classes = (IsAuthenticated,)
+    permission_classes = ()
     
     def get_queryset(self):
         produk = MaterialDinding.objects.all()
@@ -140,7 +140,7 @@ class ListCreateAllDesignMaterialDinding(ListAPIView):
 
 class ListCreateAllDesignMaterialPlafon(ListAPIView):
     serializer_class = MaterialPlafonSerializer
-    permission_classes = (IsAuthenticated,)
+    permission_classes = ()
     
     def get_queryset(self):
         produk = MaterialPlafon.objects.all()
@@ -156,7 +156,7 @@ class ListCreateAllDesignMaterialPlafon(ListAPIView):
 
 class ListCreateAllDesignMaterialAtap(ListAPIView):
     serializer_class = MaterialAtapSerializer
-    permission_classes = (IsAuthenticated,)
+    permission_classes = ()
     
     def get_queryset(self):
         produk = MaterialAtap.objects.all()
@@ -172,7 +172,7 @@ class ListCreateAllDesignMaterialAtap(ListAPIView):
 
 class ListCreateAllDesignMaterialLantai(ListAPIView):
     serializer_class = MaterialLantaiSerializer
-    permission_classes = (IsAuthenticated,)
+    permission_classes = ()
     
     def get_queryset(self):
         produk = MaterialLantai.objects.all()
@@ -188,7 +188,7 @@ class ListCreateAllDesignMaterialLantai(ListAPIView):
 
 class ListCreateAllDesignMaterialCatInterior(ListAPIView):
     serializer_class = MaterialCatInteriorSerializer
-    permission_classes = (IsAuthenticated,)
+    permission_classes = ()
     
     def get_queryset(self):
         produk = MaterialCatDalam.objects.all()
@@ -204,7 +204,7 @@ class ListCreateAllDesignMaterialCatInterior(ListAPIView):
 
 class ListCreateAllDesignMaterialCatExterior(ListAPIView):
     serializer_class = MaterialCatExteriorSerializer
-    permission_classes = (IsAuthenticated,)
+    permission_classes = ()
     
     def get_queryset(self):
         produk = MaterialCatLuar.objects.all()
@@ -220,7 +220,7 @@ class ListCreateAllDesignMaterialCatExterior(ListAPIView):
 
 # class ListUpdateDeleteSpecificDesign(RetrieveUpdateDestroyAPIView):
 #     serializer_class = DesignRABSerializer
-#     permission_classes = (IsAuthenticated, IsOwnerOrReadOnly,)
+#     permission_classes = ( IsOwnerOrReadOnly,)
 #     content = {
 #                 'status': 'Not Found'
 #             }

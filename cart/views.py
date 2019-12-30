@@ -17,7 +17,7 @@ from allUsers.models import Account
 
 class ListCreateAllCart(ListAPIView):
     serializer_class = CartSerializer
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
     
     def get_queryset(self):
         cartnya = Cart.objects.all()
@@ -28,7 +28,7 @@ class ListCreateAllCart(ListAPIView):
 
 class ListUpdateDeleteSpecificProduct(RetrieveUpdateDestroyAPIView):
     serializer_class = CartSerializer
-    permission_classes = (IsAuthenticated, IsOwnerOrReadOnly,)
+    # permission_classes = (IsAuthenticated, IsOwnerOrReadOnly,)
     content = {
                 'status': 'Not Found'
             }

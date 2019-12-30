@@ -186,7 +186,7 @@ def validate_username(username):
 # Url: https://<your-domain>/api/profile/me
 # Headers: Authorization: Token <token>
 @api_view(['GET', ])
-@permission_classes((IsAuthenticated, ))
+# @permission_classes((IsAuthenticated, ))
 def account_properties_view(request):
 
 	try:
@@ -198,7 +198,7 @@ def account_properties_view(request):
 		serializer = AccountPropertiesSerializer(allUsers)
 		return Response(serializer.data)
 
-@permission_classes((IsAuthenticated, ))
+# @permission_classes((IsAuthenticated, ))
 class toko_properties_all_view(ListCreateAPIView):
 	serializer_class = AccountAllPropertiesSerializer
 	queryset = Account.objects.filter(role=3)
@@ -206,7 +206,7 @@ class toko_properties_all_view(ListCreateAPIView):
 	search_fields = ['name',]
 	
 
-@permission_classes((IsAuthenticated, ))
+# @permission_classes((IsAuthenticated, ))
 class toko_properties_all_view_specific(RetrieveUpdateDestroyAPIView):
 	serializer_class = AccountAllPropertiesSerializer
 	content = {
@@ -222,14 +222,14 @@ class toko_properties_all_view_specific(RetrieveUpdateDestroyAPIView):
 	
 	from api.helper import get_specific as get
 
-@permission_classes((IsAuthenticated, ))
+# @permission_classes((IsAuthenticated, ))
 class vendor_properties_all_view(ListCreateAPIView):
 	serializer_class = AccountAllPropertiesSerializer
 	queryset = Account.objects.filter(role=2)
 	filter_backends = (SearchFilter, OrderingFilter)
 	search_fields = ['name',]
 
-@permission_classes((IsAuthenticated, ))
+# @permission_classes((IsAuthenticated, ))
 class vendor_properties_all_view_specific(ListCreateAPIView):
 	serializer_class = AccountAllPropertiesSerializer
 	content = {
@@ -249,7 +249,7 @@ class vendor_properties_all_view_specific(ListCreateAPIView):
 # Url: https://<your-domain>/api/allUsers/properties/update
 # Headers: Authorization: Token <token>
 @api_view(['PUT',])
-@permission_classes((IsAuthenticated, ))
+# @permission_classes((IsAuthenticated, ))
 def update_account_view(request):
 
 	try:

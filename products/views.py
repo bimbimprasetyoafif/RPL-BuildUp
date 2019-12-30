@@ -10,14 +10,14 @@ from rest_framework.views import APIView
 from rest_framework.generics import ListAPIView
 from api.helper import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from .serializers import ProductSerializer, ProductImagesSerializer
-from api.permissions import IsAuthenticated, IsOwnerOrReadOnly
+from api.permissions import  IsOwnerOrReadOnly
 
 from allUsers.models import Account
 # Create your views here.
 
 class ListCreateAllProduct(ListAPIView):
     serializer_class = ProductSerializer
-    permission_classes = (IsAuthenticated,)
+    permission_classes = ()
     
     # def get_queryset(self):
     #     produk = Products.objects.all()
@@ -33,7 +33,7 @@ class ListCreateAllProduct(ListAPIView):
 
 class ListUpdateDeleteSpecificProduct(RetrieveUpdateDestroyAPIView):
     serializer_class = ProductSerializer
-    permission_classes = (IsAuthenticated, IsOwnerOrReadOnly,)
+    permission_classes = ( IsOwnerOrReadOnly,)
     content = {
                 'status': 'Not Found'
             }
@@ -49,7 +49,7 @@ class ListUpdateDeleteSpecificProduct(RetrieveUpdateDestroyAPIView):
 
 class FileUploadView(APIView):
     parser_class = (FileUploadParser,)
-    permission_classes = (IsAuthenticated, IsOwnerOrReadOnly,)
+    permission_classes = ( IsOwnerOrReadOnly,)
     def post(self, request, *args, **kwargs):
         data = {}
         file_serializer = ProductImagesSerializer(data=request.data)
