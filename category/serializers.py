@@ -4,13 +4,13 @@ from products.serializers import ProductSerializer
 from design.serializers import DesignSerializer
 
 class CategorySerializer(serializers.ModelSerializer):
-    ProductInCategory = ProductSerializer(many=True, read_only=True)
+    productInCategory = ProductSerializer(many=True, read_only=True)
     class Meta:
         model = Categorys
         fields = "__all__"
 
 class CategoryHomeSerializer(serializers.ModelSerializer):
-    DesignInCategory = DesignSerializer(many=True)
+    designInCategory = DesignSerializer(many=True)
     class Meta:
         model = CategorysHome
         fields = "__all__"

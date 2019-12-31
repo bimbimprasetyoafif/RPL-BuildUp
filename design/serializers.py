@@ -54,12 +54,12 @@ class MaterialCatExteriorSerializer(serializers.ModelSerializer):
 class DesignSerializer(serializers.ModelSerializer):
     allImagesDesign= DesignImagesSerializer(many=True, read_only=True)
     allRAB= DesignRABSerializer(many=True, read_only=True)
-    CustomAtap= MaterialAtapSerializer(many=True, read_only=True)
-    CustomPlafon= MaterialPlafonSerializer(many=True, read_only=True)
-    CustomLantai= MaterialLantaiSerializer(many=True, read_only=True)
-    CustomDinding= MaterialDindingSerializer(many=True, read_only=True)
-    CustomCatDalam= MaterialCatInteriorSerializer(many=True, read_only=True)
-    CustomCatLuar= MaterialCatExteriorSerializer(many=True, read_only=True)
+    customAtap= MaterialAtapSerializer(many=True, read_only=True)
+    customPlafon= MaterialPlafonSerializer(many=True, read_only=True)
+    customLantai= MaterialLantaiSerializer(many=True, read_only=True)
+    customDinding= MaterialDindingSerializer(many=True, read_only=True)
+    customCatDalam= MaterialCatInteriorSerializer(many=True, read_only=True)
+    customCatLuar= MaterialCatExteriorSerializer(many=True, read_only=True)
 
     class Meta:
         model = Design
