@@ -78,7 +78,7 @@ class MaterialCatDalam(models.Model):
 
 class DesignImages(models.Model):
     DesignId = models.ForeignKey(Design, related_name="allImagesDesign", on_delete=models.CASCADE,)
-    Image = models.ImageField(blank=False, null=False)
+    Image = models.ImageField(blank=False, null=False, upload_to="media/")
 
     def __str__(self):
         return "{} - {}".format(self.DesignId, self.Image)
