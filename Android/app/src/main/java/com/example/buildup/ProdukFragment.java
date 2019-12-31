@@ -42,9 +42,9 @@ public class ProdukFragment extends Fragment {
         textView.setText(judul);
 
         ArrayList<Item> listItem = new ArrayList<>();
-        listItem.add(new Item(R.drawable.mitrarenov, "Semen", "Tiga Roda", "Rp. 200.000,-"));
-        listItem.add(new Item(R.drawable.mitrarenov, "Semen", "Gresik", "Rp. 100.000,-"));
-        listItem.add(new Item(R.drawable.mitrarenov, "Cat", "Avitex", "Rp. 50.000,-"));
+//        listItem.add(new Item(R.drawable.mitrarenov, "Semen", "Tiga Roda", "Rp. 200.000,-"));
+//        listItem.add(new Item(R.drawable.mitrarenov, "Semen", "Gresik", "Rp. 100.000,-"));
+//        listItem.add(new Item(R.drawable.mitrarenov, "Cat", "Avitex", "Rp. 50.000,-"));
 
         mRecycleView = rootView.findViewById(R.id.recyclerView);
         mRecycleView.setHasFixedSize(true);
