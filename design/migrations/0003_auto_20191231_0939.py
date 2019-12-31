@@ -169,7 +169,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='materialatap',
             name='designId',
-            field=models.ForeignKey(default=django.utils.timezone.now, on_delete=django.db.models.deletion.CASCADE, related_name='customAtap', to='design.Design'),
+            field=models.ForeignKey(default=' ', on_delete=django.db.models.deletion.CASCADE, related_name='customAtap', to='design.Design'),
             preserve_default=False,
         ),
         migrations.AddField(
