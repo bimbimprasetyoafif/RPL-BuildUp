@@ -6,7 +6,7 @@ from .serializers import CategorySerializer,CategoryHomeSerializer
 
 class ListCreateAllCategory(ListCreateAPIView):
     serializer_class = CategorySerializer
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):
        objek = Categorys.objects.all()
@@ -17,7 +17,7 @@ class ListCreateAllCategory(ListCreateAPIView):
 
 class ListUpdateDeleteSpecificCategory(RetrieveUpdateDestroyAPIView):
     serializer_class = CategorySerializer
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
     content = {
                 'status': 'Not Found'
             }
