@@ -46,7 +46,7 @@ class ListCreateAllDesign(ListAPIView):
     #     return produk
     queryset = Design.objects.all()
     filter_backends = (SearchFilter, OrderingFilter)
-    search_fields = ['DesignName',]
+    search_fields = ['designName',]
 
     # from api.helper import get_all as get
     from api.helper import post_new_product_or_desain as post
@@ -72,7 +72,7 @@ class FileUploadDesignView(APIView):
     def post(self, request, *args, **kwargs):
         data = {}
         file_serializer = DesignImagesSerializer(data=request.data)
-        idProd = request.data.get('DesignId')
+        idProd = request.data.get('designId')
         pkInProduk = Design.objects.get(DesignId=idProd)
         if(pkInProduk.creator == request.user):
             if file_serializer.is_valid():
@@ -96,7 +96,7 @@ class ListCreateAllDesignRAB(ListAPIView):
     def get_queryset(self):
         produk = RAB.objects.all()
         filter_backends = [SearchFilter, OrderingFilter]
-        search_fields = ['ProductName',]
+        search_fields = ['productName',]
         return produk
     # queryset = Design.objects.all()
     # filter_backends = (SearchFilter, OrderingFilter)
