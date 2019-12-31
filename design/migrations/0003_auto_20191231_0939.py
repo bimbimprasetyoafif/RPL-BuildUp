@@ -169,37 +169,37 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='materialatap',
             name='designId',
-            field=models.ForeignKey(default=' ', on_delete=django.db.models.deletion.CASCADE, related_name='customAtap', to='design.Design'),
+            field=models.ForeignKey(default=99999999, on_delete=django.db.models.deletion.CASCADE, related_name='customAtap', to='design.Design'),
             preserve_default=False,
         ),
         migrations.AddField(
             model_name='materialcatdalam',
             name='designId',
-            field=models.ForeignKey(default=' ', on_delete=django.db.models.deletion.CASCADE, related_name='customCatDalam', to='design.Design'),
+            field=models.ForeignKey(default=99999999, on_delete=django.db.models.deletion.CASCADE, related_name='customCatDalam', to='design.Design'),
             preserve_default=False,
         ),
         migrations.AddField(
             model_name='materialcatluar',
             name='designId',
-            field=models.ForeignKey(default=' ', on_delete=django.db.models.deletion.CASCADE, related_name='customCatLuar', to='design.Design'),
+            field=models.ForeignKey(default=99999999, on_delete=django.db.models.deletion.CASCADE, related_name='customCatLuar', to='design.Design'),
             preserve_default=False,
         ),
         migrations.AddField(
             model_name='materialdinding',
             name='designId',
-            field=models.ForeignKey(default=' ', on_delete=django.db.models.deletion.CASCADE, related_name='customDinding', to='design.Design'),
+            field=models.ForeignKey(default=99999999, on_delete=django.db.models.deletion.CASCADE, related_name='customDinding', to='design.Design'),
             preserve_default=False,
         ),
         migrations.AddField(
             model_name='materiallantai',
             name='designId',
-            field=models.ForeignKey(default=' ', on_delete=django.db.models.deletion.CASCADE, related_name='customLantai', to='design.Design'),
+            field=models.ForeignKey(default=99999999, on_delete=django.db.models.deletion.CASCADE, related_name='customLantai', to='design.Design'),
             preserve_default=False,
         ),
         migrations.AddField(
             model_name='materialplafon',
             name='designId',
-            field=models.ForeignKey(default=' ', on_delete=django.db.models.deletion.CASCADE, related_name='customPlafon', to='design.Design'),
+            field=models.ForeignKey(default=99999999, on_delete=django.db.models.deletion.CASCADE, related_name='customPlafon', to='design.Design'),
             preserve_default=False,
         ),
         migrations.AlterField(
