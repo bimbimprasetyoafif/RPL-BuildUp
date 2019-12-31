@@ -1,5 +1,6 @@
 package com.example.buildup;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,6 +9,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 
@@ -97,6 +99,14 @@ public class TokoFragment extends Fragment{
             @Override
             public void onClick(View v) {
                 moveFragmentProduk("Batu");
+            }
+        });
+
+        ImageView keranjang = rootView.findViewById(R.id.keranjang_toko);
+        keranjang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(rootView.getContext(), KeranjangActivity.class));
             }
         });
 

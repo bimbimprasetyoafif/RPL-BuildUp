@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -36,7 +37,7 @@ import retrofit2.Retrofit;
 public class TipeRumahFragment extends Fragment {
 
     private RecyclerView mRecycleView;
-    private final String TAG = TipeRumahFragment.class.getSimpleName();
+//    private final String TAG = TipeRumahFragment.class.getSimpleName();
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     String judul;
@@ -66,7 +67,7 @@ public class TipeRumahFragment extends Fragment {
         final ArrayList<Item> listItem = new ArrayList<>();
         mRecycleView = view.findViewById(R.id.recyclerView);
         mRecycleView.setHasFixedSize(true);
-        mLayoutManager = new LinearLayoutManager(this.getContext());
+        mLayoutManager = new GridLayoutManager(this.getContext(),2);
         mRecycleView.setLayoutManager(mLayoutManager);
 
 
@@ -76,8 +77,8 @@ public class TipeRumahFragment extends Fragment {
             @Override
             public void onResponse(Call<Example> call, Response<Example> response) {
                 List<Result> results = response.body().getResults();
-                Toast.makeText(getContext(), results.get(0).getCategoryName(), Toast.LENGTH_SHORT).show();
-                Log.d(TAG, results.toString());
+//                Toast.makeText(getContext(), results.get(0).getCategoryName(), Toast.LENGTH_SHORT).show();
+//                Log.d(TAG, results.toString());
                 for(Result result : results){
                     if(result.getCategoryName().equals(judul)){
                         List<DesignInCategory> designs = result.getDesignInCategory();

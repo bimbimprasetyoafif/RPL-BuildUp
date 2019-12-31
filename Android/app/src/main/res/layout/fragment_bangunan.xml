@@ -45,18 +45,9 @@
                 android:layout_height="16dp"
                 android:layout_centerHorizontal="false"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="40dp"
+                android:layout_marginLeft="48dp"
                 android:src="@drawable/search" />
         </RelativeLayout>
-
-        <ImageView
-            android:id="@+id/imageView36"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginRight="5dp"
-            android:layout_gravity="center_vertical|end"
-            android:layout_weight="1"
-            android:src="@drawable/keranjang" />
 
     </LinearLayout>
 
