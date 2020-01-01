@@ -44,14 +44,15 @@
             </RelativeLayout>
 
             <TextView
+                android:id="@+id/kategori_tipe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:textStyle="bold"
+                android:text="Rumah Modern Tipe 54"
                 android:textColor="@android:color/black"
                 android:textSize="20dp"
-                android:text="Rumah Modern Tipe 54"/>
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="match_parent"
@@ -72,14 +73,15 @@
                 android:text="Deskripsi"/>
 
             <TextView
+                android:id="@+id/deskripsi_rumah"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:fontFamily="@font/josefin_sans"
-                android:textSize="13dp"
                 android:text="Rumah tipe 54 2 lantai, dengan desain modern masa kini.\n
-Dilengkapi 3 kamar tidur, 2 kamar mandi, 1 garasi, ruang tamu, ruang keluarga, taman kecil untuk anak bermain"/>
+Dilengkapi 3 kamar tidur, 2 kamar mandi, 1 garasi, ruang tamu, ruang keluarga, taman kecil untuk anak bermain"
+                android:textSize="13dp" />
 
             <View
                 android:layout_width="match_parent"
