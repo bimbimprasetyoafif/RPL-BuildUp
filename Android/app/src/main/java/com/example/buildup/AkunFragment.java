@@ -1,6 +1,7 @@
 package com.example.buildup;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -28,6 +29,10 @@ public class AkunFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_akun, container, false);
 
 //        return null;
+    }
+
+    public void klikKeluar(View view) {
+        startActivity(new Intent(getContext(), MasukFragment.class));
     }
 
 }
