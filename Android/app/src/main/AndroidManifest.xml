@@ -11,8 +11,6 @@
         android:roundIcon="@mipmap/logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.main.EditActivity"></activity>
-        <activity android:name=".ui.main.InsertActivity" />
         <activity android:name=".CariActivity" />
         <activity android:name=".EstimasiActivity" />
         <activity android:name=".FormActivity" />
