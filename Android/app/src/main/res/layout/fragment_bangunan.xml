@@ -133,7 +133,7 @@
                             android:layout_centerHorizontal="true"
                             android:fontFamily="@font/josefin_sans"
                             android:paddingBottom="8dp"
-                            android:text="Minimalist"
+                            android:text="Minimalis"
                             android:textColor="@android:color/black"
                             android:textStyle="bold" />
 
@@ -316,7 +316,7 @@
                             android:layout_centerHorizontal="true"
                             android:fontFamily="@font/josefin_sans"
                             android:paddingBottom="8dp"
-                            android:text="Tradisioanal"
+                            android:text="Tradisional"
                             android:textColor="@android:color/black"
                             android:textStyle="bold" />
                     </RelativeLayout>

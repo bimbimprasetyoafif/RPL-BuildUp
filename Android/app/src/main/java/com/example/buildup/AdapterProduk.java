@@ -7,20 +7,27 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.buildup.data.DesignInCategory;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
+public class AdapterProduk extends RecyclerView.Adapter<AdapterProduk.ViewHolder> {
 
-    private ArrayList<Item> mListItem;
+    private List<DesignInCategory> mListItem;
+    private OnItemRvClickedDesign mListener;
 
-    public static class ViewHolder extends  RecyclerView.ViewHolder{
+    public static class ViewHolder extends  RecyclerView.ViewHolder implements View.OnClickListener{
 
-        public ImageView mImageView;
-        public TextView namaProduk, merkProduk, hargaProduk;
+        ImageView mImageView;
+        TextView namaProduk, merkProduk, hargaProduk;
+        CardView cardView;
+        private OnItemRvClickedDesign mListener;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -28,10 +35,17 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             namaProduk = itemView.findViewById(R.id.nama_produk);
             merkProduk = itemView.findViewById(R.id.merk_produk);
             hargaProduk = itemView.findViewById(R.id.harga_produk);
+            cardView = itemView.findViewById(R.id.layout_item);
+
+        }
+
+        @Override
+        public void onClick(View v) {
+//            mListener.goToDeskripsiActivity(mListItem.get());
         }
     }
 
-    public Adapter(ArrayList<Item> listItem){
+    public AdapterProduk(ArrayList<DesignInCategory> listItem){
         mListItem = listItem;
     }
 
@@ -45,17 +59,22 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Item currentItem = mListItem.get(position);
+        DesignInCategory currentItem = mListItem.get(position);
 
 //        holder.mImageView.setImageResource(currentItem.getmImageResource());
-        Glide.with(holder.itemView).load(currentItem.getmImageResource()).into(holder.mImageView);
-        holder.namaProduk.setText(currentItem.getNamaProduk());
-        holder.merkProduk.setText(currentItem.getMerkProduk());
-        holder.hargaProduk.setText(currentItem.getHargaProduk());
+        Glide.with(holder.itemView).load(currentItem.getAllImagesDesign().get(0)).into(holder.mImageView);
+        holder.namaProduk.setText(currentItem.getDesignName());
+        holder.merkProduk.setText("");
+        holder.hargaProduk.setText("");
     }
 
     @Override
     public int getItemCount() {
         return mListItem.size();
     }
+
+    public interface OnItemRvClickedDesign {
+        void goToDeskripsiActivity(DesignInCategory design);
+    }
+
 }
