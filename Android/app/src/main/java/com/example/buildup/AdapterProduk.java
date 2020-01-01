@@ -1,5 +1,6 @@
 package com.example.buildup;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,13 +21,13 @@ public class AdapterProduk extends RecyclerView.Adapter<AdapterProduk.ViewHolder
 
     private List<DesignInCategory> mListItem;
     private OnItemRvClickedDesign mListener;
+    private Context mContext;
 
-    public static class ViewHolder extends  RecyclerView.ViewHolder implements View.OnClickListener{
+    class ViewHolder extends  RecyclerView.ViewHolder implements View.OnClickListener{
 
         ImageView mImageView;
         TextView namaProduk, merkProduk, hargaProduk;
         CardView cardView;
-        private OnItemRvClickedDesign mListener;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -36,17 +37,23 @@ public class AdapterProduk extends RecyclerView.Adapter<AdapterProduk.ViewHolder
             merkProduk = itemView.findViewById(R.id.merk_produk);
             hargaProduk = itemView.findViewById(R.id.harga_produk);
             cardView = itemView.findViewById(R.id.layout_item);
-
+            cardView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
-//            mListener.goToDeskripsiActivity(mListItem.get());
+            mListener.goToDeskripsiActivity(mListItem.get(getAdapterPosition()));
         }
     }
 
-    public AdapterProduk(ArrayList<DesignInCategory> listItem){
+    public AdapterProduk(Context context, List<DesignInCategory> listItem){
         mListItem = listItem;
+        mContext = context;
+//        mListener = (OnItemRvClickedDesign) context;
+    }
+
+    public void setListener(OnItemRvClickedDesign onItemRvClickedDesign) {
+        this.mListener = onItemRvClickedDesign;
     }
 
     @NonNull
@@ -62,10 +69,12 @@ public class AdapterProduk extends RecyclerView.Adapter<AdapterProduk.ViewHolder
         DesignInCategory currentItem = mListItem.get(position);
 
 //        holder.mImageView.setImageResource(currentItem.getmImageResource());
-        Glide.with(holder.itemView).load(currentItem.getAllImagesDesign().get(0)).into(holder.mImageView);
+//        Glide.with(holder.itemView).load(currentItem.getAllImagesDesign().get(0)).into(holder.mImageView);
         holder.namaProduk.setText(currentItem.getDesignName());
         holder.merkProduk.setText("");
         holder.hargaProduk.setText("");
+
+
     }
 
     @Override
