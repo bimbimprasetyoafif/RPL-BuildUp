@@ -41,18 +41,18 @@ public class ProdukFragment extends Fragment {
         TextView textView = rootView.findViewById(R.id.kategori_produk);
         textView.setText(judul);
 
-        ArrayList<Item> listItem = new ArrayList<>();
+//        ArrayList<Item> listItem = new ArrayList<>();
 //        listItem.add(new Item(R.drawable.mitrarenov, "Semen", "Tiga Roda", "Rp. 200.000,-"));
 //        listItem.add(new Item(R.drawable.mitrarenov, "Semen", "Gresik", "Rp. 100.000,-"));
 //        listItem.add(new Item(R.drawable.mitrarenov, "Cat", "Avitex", "Rp. 50.000,-"));
-
-        mRecycleView = rootView.findViewById(R.id.recyclerView);
-        mRecycleView.setHasFixedSize(true);
-        mLayoutManager = new LinearLayoutManager(this.getContext());
-        mAdapter = new Adapter(listItem);
-
-        mRecycleView.setLayoutManager(mLayoutManager);
-        mRecycleView.setAdapter(mAdapter);
+//
+//        mRecycleView = rootView.findViewById(R.id.recyclerView);
+//        mRecycleView.setHasFixedSize(true);
+//        mLayoutManager = new LinearLayoutManager(this.getContext());
+//        mAdapter = new AdapterProduk(listItem);
+//
+//        mRecycleView.setLayoutManager(mLayoutManager);
+//        mRecycleView.setAdapter(mAdapter);
 
         return rootView;
     }
