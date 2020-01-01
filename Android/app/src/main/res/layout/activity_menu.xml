@@ -15,14 +15,19 @@
         app:menu="@menu/bottom_nav"
         app:itemBackground="@android:color/white"
         >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#57A0D3">
+
+        </RelativeLayout>
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
     <FrameLayout
+        android:id="@+id/frame_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/frame_layout"
-        android:background="@color/colorPrimary"
-        android:layout_above="@+id/menuNav"
-        ></FrameLayout>
+        android:layout_above="@+id/menuNav"></FrameLayout>
 
 </RelativeLayout>

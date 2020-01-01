@@ -2,17 +2,17 @@ package com.example.buildup;
 
 public class Item {
 
-    private  int mImageResource;
+    private  String mImageResource;
     private String namaProduk, merkProduk, hargaProduk;
 
-    public Item(int imageResource, String nama, String merk, String harga){
+    public Item(String imageResource, String nama, String merk, String harga){
         mImageResource = imageResource;
         namaProduk = nama;
         merkProduk = merk;
         hargaProduk = harga;
     }
 
-    public int getmImageResource() {
+    public String getmImageResource() {
         return mImageResource;
     }
 

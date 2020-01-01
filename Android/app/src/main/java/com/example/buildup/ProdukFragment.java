@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -22,8 +23,10 @@ public class ProdukFragment extends Fragment {
     private RecyclerView mRecycleView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    String judul;
 
-    public ProdukFragment() {
+    public ProdukFragment(String text) {
+        judul = text;
         // Required empty public constructor
     }
 
@@ -35,10 +38,13 @@ public class ProdukFragment extends Fragment {
         final View rootView;
         rootView = inflater.inflate(R.layout.fragment_produk, container, false);
 
+        TextView textView = rootView.findViewById(R.id.kategori_produk);
+        textView.setText(judul);
+
         ArrayList<Item> listItem = new ArrayList<>();
-        listItem.add(new Item(R.drawable.mitrarenov, "Semen", "Tiga Roda", "Rp. 200.000,-"));
-        listItem.add(new Item(R.drawable.mitrarenov, "Semen", "Gresik", "Rp. 100.000,-"));
-        listItem.add(new Item(R.drawable.mitrarenov, "Cat", "Avitex", "Rp. 50.000,-"));
+//        listItem.add(new Item(R.drawable.mitrarenov, "Semen", "Tiga Roda", "Rp. 200.000,-"));
+//        listItem.add(new Item(R.drawable.mitrarenov, "Semen", "Gresik", "Rp. 100.000,-"));
+//        listItem.add(new Item(R.drawable.mitrarenov, "Cat", "Avitex", "Rp. 50.000,-"));
 
         mRecycleView = rootView.findViewById(R.id.recyclerView);
         mRecycleView.setHasFixedSize(true);

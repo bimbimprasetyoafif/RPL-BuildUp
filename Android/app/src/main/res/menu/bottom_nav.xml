@@ -3,25 +3,25 @@
 
     <item
         android:id="@+id/bangunan"
-        android:title=""
+        android:title="Bangunan"
         android:icon="@drawable/bangunan"
         ></item>
 
     <item
         android:id="@+id/toko"
-        android:title=""
+        android:title="Toko"
         android:icon="@drawable/toko"
         ></item>
 
     <item
         android:id="@+id/aktivitas"
-        android:title=""
+        android:title="Aktivitas"
         android:icon="@drawable/aktifitas"
         ></item>
 
     <item
         android:id="@+id/akun"
-        android:title=""
+        android:title="Akun"
         android:icon="@drawable/ic_action_akun"
         ></item>
 
