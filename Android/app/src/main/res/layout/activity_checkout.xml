@@ -264,22 +264,17 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/tm_pink">
+            android:layout_marginRight="20dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Batalkan Pesanan"
-                android:textSize="20dp"
-                android:layout_marginLeft="80dp"
-                android:layout_marginRight="80dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@drawable/tm_pink"
+                android:fontFamily="@font/josefin_sans"
+                android:textStyle="bold"
                 android:textColor="@android:color/white"
-                android:fontFamily="@font/josefin_sans"/>
 
-
+                android:text="Batalkan Pesanan"/>
         </LinearLayout>
     </LinearLayout>
 
