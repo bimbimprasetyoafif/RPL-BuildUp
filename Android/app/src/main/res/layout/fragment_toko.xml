@@ -12,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="10dp"
-        android:background="#57A0D3"
         android:orientation="horizontal">
 
 
@@ -24,9 +23,12 @@
             <ImageView
                 android:id="@+id/imageView38"
                 android:layout_width="350dp"
-                android:layout_height="45dp"
-                android:layout_margin="5dp"
+                android:layout_height="44dp"
                 android:layout_centerHorizontal="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
                 android:src="@drawable/kotak_cari" />
 
 
@@ -50,11 +52,11 @@
         </RelativeLayout>
 
         <ImageView
-            android:id="@+id/imageView36"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginRight="5dp"
+            android:id="@+id/keranjang_toko"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_gravity="center_vertical|end"
+            android:layout_marginRight="5dp"
             android:layout_weight="1"
             android:src="@drawable/keranjang" />
 
@@ -170,6 +172,7 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/semen"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:padding="8dp">
@@ -202,6 +205,7 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/pasir"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:padding="8dp">
@@ -242,6 +246,7 @@
                     android:orientation="horizontal">
 
                     <RelativeLayout
+                        android:id="@+id/pipa"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:padding="8dp">
@@ -275,6 +280,7 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/cat"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:padding="8dp">
@@ -307,6 +313,7 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/keramik"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:padding="8dp">
@@ -346,6 +353,7 @@
                     android:orientation="horizontal">
 
                     <RelativeLayout
+                        android:id="@+id/kayu"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:padding="8dp">
@@ -378,6 +386,7 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/bata"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:padding="8dp">
@@ -410,6 +419,7 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/batu"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:padding="8dp">
