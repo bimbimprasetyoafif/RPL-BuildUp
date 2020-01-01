@@ -1,21 +1,19 @@
 package com.example.buildup;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.buildup.API.RetrofitClient;
 import com.example.buildup.data.DesignInCategory;
@@ -28,13 +26,12 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TipeRumahFragment extends Fragment {
+public class TipeRumahFragment extends Fragment implements AdapterProduk.OnItemRvClickedDesign{
 
     private RecyclerView mRecycleView;
 //    private final String TAG = TipeRumahFragment.class.getSimpleName();
@@ -91,7 +88,7 @@ public class TipeRumahFragment extends Fragment {
                         }
                     }
                 }
-                mAdapter = new Adapter(listItem);
+                mAdapter = new AdapterProduk(listItem);
                 mRecycleView.setAdapter(mAdapter);
             }
 
@@ -100,5 +97,12 @@ public class TipeRumahFragment extends Fragment {
                 t.printStackTrace();
             }
         });
+    }
+
+    @Override
+    public void goToDeskripsiActivity(DesignInCategory design) {
+        Bundle bundle = new Bundle();
+        bundle.putInt("designId", design.getDesignId());
+        startActivity(new Intent(getContext(), DeskripsiRumahActivity.class).putExtras(bundle));
     }
 }

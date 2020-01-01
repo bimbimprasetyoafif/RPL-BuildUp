@@ -49,7 +49,7 @@ public class ProdukFragment extends Fragment {
         mRecycleView = rootView.findViewById(R.id.recyclerView);
         mRecycleView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this.getContext());
-        mAdapter = new Adapter(listItem);
+        mAdapter = new AdapterProduk(listItem);
 
         mRecycleView.setLayoutManager(mLayoutManager);
         mRecycleView.setAdapter(mAdapter);
