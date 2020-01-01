@@ -97,6 +97,7 @@ public class TipeRumahFragment extends Fragment {
                         public void goToDeskripsiActivity(DesignInCategory design) {
                             Bundle bundle = new Bundle();
                             bundle.putInt("designId", design.getDesignId());
+                            bundle.putInt("categoryId", design.getCategory());
                             startActivity(new Intent(getContext(), DeskripsiRumahActivity.class).putExtras(bundle));
                         }
                     });
