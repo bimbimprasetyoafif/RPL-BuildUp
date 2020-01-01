@@ -5,43 +5,25 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
     private static RetrofitClient mInstance;
+    private Retrofit retrofit;
 
-    private static Retrofit retrofit;
+    private static final String BASE_URL = "http://rpl-bu.herokuapp.com/api/profile/login/";
 
-
-
-    private RetrofitClient()
-
-    {
+    private RetrofitClient(){
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://rpl-bu.herokuapp.com/api/")
+                .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }
 
-
-
-    public static synchronized RetrofitClient getInstance()
-
-    {
-
-        if (mInstance == null){
-
+    public static synchronized RetrofitClient getInstance(){
+        if(mInstance == null){
             mInstance = new RetrofitClient();
-
         }
-
         return mInstance;
-
     }
 
-
-
-    public BuildUpApi getAPI()
-
-    {
-
-        return retrofit.create(BuildUpApi.class);
-
+    public Api getApi(){
+        return retrofit.create(Api.class);
     }
 }
