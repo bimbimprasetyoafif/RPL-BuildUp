@@ -13,13 +13,14 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/back_checkout"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/imageView35"
+                android:id="@+id/back_c"
                 android:layout_width="wrap_content"
                 android:layout_height="12dp"
                 android:layout_gravity="center_vertical"
@@ -255,31 +256,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/josefin_sans_semibold"
+                android:text="54.000"
                 android:textColor="@android:color/black"
-                android:textSize="25dp"
-                android:text="1.300.000"/>
+                android:textSize="25dp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/tm_pink">
+            android:layout_marginRight="20dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Batalkan Pesanan"
-                android:textSize="20dp"
-                android:layout_marginLeft="80dp"
-                android:layout_marginRight="80dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@drawable/tm_pink"
+                android:fontFamily="@font/josefin_sans"
+                android:textStyle="bold"
                 android:textColor="@android:color/white"
-                android:fontFamily="@font/josefin_sans"/>
 
-
+                android:text="Batalkan Pesanan"/>
         </LinearLayout>
     </LinearLayout>
 

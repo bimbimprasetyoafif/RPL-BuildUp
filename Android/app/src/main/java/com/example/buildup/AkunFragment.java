@@ -32,7 +32,7 @@ public class AkunFragment extends Fragment {
     }
 
     public void klikKeluar(View view) {
-        startActivity(new Intent(getContext(), MasukFragment.class));
+        startActivity(new Intent(getContext(), MasukActivity.class));
     }
 
 }

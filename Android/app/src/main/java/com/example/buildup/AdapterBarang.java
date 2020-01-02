@@ -67,7 +67,7 @@ public class AdapterBarang extends RecyclerView.Adapter<AdapterBarang.ViewHolder
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Item currentItem = mListItem.get(position);
 
-//        holder.mImageView.setImageResource(currentItem.getmImageResource());
+        holder.mImageView.setImageResource(currentItem.getmImageResource());
 //        Glide.with(holder.itemView).load(currentItem.getAllImagesDesign().get(0)).into(holder.mImageView);
         holder.namaProduk.setText(currentItem.getNamaProduk());
         holder.merkProduk.setText("");

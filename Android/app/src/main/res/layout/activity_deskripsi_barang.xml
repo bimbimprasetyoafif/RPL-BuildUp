@@ -60,11 +60,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
+                    android:layout_alignParentRight="true"
+                    android:text="Rp 54.000"
                     android:textColor="@android:color/black"
                     android:textSize="20dp"
-                    android:layout_alignParentRight="true"
-                    android:text="Rp 500.000"/>
+                    android:textStyle="bold" />
             </RelativeLayout>
 
             <View
