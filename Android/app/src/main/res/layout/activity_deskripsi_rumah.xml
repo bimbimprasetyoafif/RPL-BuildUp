@@ -133,11 +133,13 @@ Dilengkapi 3 kamar tidur, 2 kamar mandi, 1 garasi, ruang tamu, ruang keluarga, t
                     android:layout_height="60dp"
                     android:layout_gravity="center"
                     android:src="@drawable/mitrarenov" />
+
                 <LinearLayout
+                    android:id="@+id/vendor_layout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginLeft="5dp">
+                    android:layout_marginLeft="5dp"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/nama_vendor_deskripsi"
@@ -161,7 +163,6 @@ Dilengkapi 3 kamar tidur, 2 kamar mandi, 1 garasi, ruang tamu, ruang keluarga, t
                         android:textSize="13dp" />
 
 
-
                 </LinearLayout>
 
             </LinearLayout>
@@ -176,6 +177,7 @@ Dilengkapi 3 kamar tidur, 2 kamar mandi, 1 garasi, ruang tamu, ruang keluarga, t
 
 
             <Button
+                android:id="@+id/pilih_rumah"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="center"

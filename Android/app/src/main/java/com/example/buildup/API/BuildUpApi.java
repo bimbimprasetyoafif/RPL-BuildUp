@@ -1,6 +1,7 @@
 package com.example.buildup.API;
 
 import com.example.buildup.data.Example;
+import com.example.buildup.data.ExampleProduct;
 import com.example.buildup.data.Result;
 
 import java.util.List;
@@ -12,4 +13,7 @@ public interface BuildUpApi {
 
     @GET("kategorirumah/")
     Call<Example> getExample();
+
+    @GET("produk/")
+    Call<ExampleProduct> getExampleProduk();
 }
