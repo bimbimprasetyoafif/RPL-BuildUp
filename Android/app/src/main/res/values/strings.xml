@@ -30,7 +30,7 @@
     <string-array name="pilih_dinding">
         <item>Jenis Dinding</item>
         <item>Bata Merah</item>
-        <item>-</item>
+        <item>Batako</item>
     </string-array>
     <string-array name="pilih_lantai">
         <item>Jenis Lantai</item>
@@ -40,13 +40,13 @@
     <string-array name="pilih_cat_luar">
         <item>Pilih Produk</item>
         <item>Nippon Paint</item>
-        <item>-</item>
-        <item>-</item>
+        <item>Avitex</item>
+        <item>No drop</item>
     </string-array>
     <string-array name="pilih_cat_dalam">
         <item>Pilih Produk</item>
         <item>Nippon Paint</item>
-        <item>-</item>
-        <item>-</item>
+        <item>Avitex</item>
+        <item>No drop</item>
     </string-array>
 </resources>

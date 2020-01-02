@@ -74,7 +74,7 @@
                                 android:layout_marginEnd="20dp"
                                 android:layout_marginBottom="20dp"
                                 android:layout_weight="1"
-                                app:srcCompat="@color/colorPrimary" />
+                                app:srcCompat="@drawable/semen3roda" />
                         </RelativeLayout>
 
                         <LinearLayout
@@ -92,7 +92,7 @@
                                 android:layout_marginTop="4dp"
                                 android:layout_marginBottom="4dp"
                                 android:fontFamily="@font/josefin_sans"
-                                android:text="Nama Barang"
+                                android:text="Semen Tiga Roda"
                                 android:textColor="@android:color/black"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -104,7 +104,7 @@
                                 android:layout_marginTop="4dp"
                                 android:layout_marginBottom="4dp"
                                 android:fontFamily="@font/josefin_sans"
-                                android:text="Rp. Harga Barang,-"
+                                android:text="Rp. 54.000"
                                 android:textColor="#3E3F68"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -196,7 +196,7 @@
                 android:layout_marginRight="20dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/josefin_sans"
-                android:text="Rp. Total harga.-"
+                android:text="Rp. 54.000"
                 android:textAlignment="viewEnd"
                 android:textColor="@android:color/black"
                 android:textSize="24sp"
@@ -208,7 +208,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView58"
+                android:id="@+id/pesan_keranjang"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"

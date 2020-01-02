@@ -57,6 +57,8 @@ public class ProdukFragment extends Fragment {
         TextView textView = rootView.findViewById(R.id.kategori_produk);
         textView.setText(judul);
 
+
+
         return rootView;
     }
 
@@ -70,7 +72,7 @@ public class ProdukFragment extends Fragment {
         mRecycleView.setLayoutManager(mLayoutManager);
 
         listItem.add(new Item(R.drawable.semen3roda, "Semen Tiga Roda", "Tiga Roda", "Rp. 54000,-"));
-        listItem.add(new Item(R.drawable.semen_padang, "Semen Red Bull", "Tiga Roda", "Rp. 61000,-"));
+        listItem.add(new Item(R.drawable.semen_padang, "Semen Padang", "Tiga Roda", "Rp. 61000,-"));
 
         mAdapter = new AdapterBarang(getContext(), listItem);
         mRecycleView.setAdapter(mAdapter);
