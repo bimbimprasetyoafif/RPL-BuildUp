@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -57,6 +60,22 @@ public class DeskripsiRumahActivity extends AppCompatActivity {
 
             }
 
+        });
+
+        Button pilih = findViewById(R.id.pilih_rumah);
+        pilih.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DeskripsiRumahActivity.this, FormActivity.class));
+            }
+        });
+
+        LinearLayout vendorLayout = findViewById(R.id.vendor_layout);
+        vendorLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DeskripsiRumahActivity.this, VendorActivity.class));
+            }
         });
     }
 }
