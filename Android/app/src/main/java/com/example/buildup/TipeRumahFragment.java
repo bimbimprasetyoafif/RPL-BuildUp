@@ -75,7 +75,8 @@ public class TipeRumahFragment extends Fragment {
         mRecycleView.setLayoutManager(mLayoutManager);
 
 
-        Call<Example> call = RetrofitClient.getInstance().getApi().createUser();
+        Call<Example> call = RetrofitClient.getInstance().getAPI().getExample();
+
         call.enqueue(new Callback<Example>() {
             @Override
             public void onResponse(Call<Example> call, Response<Example> response) {

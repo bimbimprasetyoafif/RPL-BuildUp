@@ -29,7 +29,7 @@ public class MasukActivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager){
         com.example.buildup.SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         sectionsPagerAdapter.addFragment(new MasukFragment(), "MASUK");
-//        sectionsPagerAdapter.addFragment(new DaftarFragment(), "DAFTAR");
+        sectionsPagerAdapter.addFragment(new DaftarFragment(), "DAFTAR");
         viewPager.setAdapter(sectionsPagerAdapter);
     }
 
