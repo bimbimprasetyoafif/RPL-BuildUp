@@ -142,6 +142,7 @@ Jl. Nilam Tim. No.3, Perak Utara, Kec. Pabean Cantian, Kota SBY, Jawa Timur 6016
                 android:textColor="#57A0D3" />
 
             <Button
+                android:id="@+id/masukkan_keranjang"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="center"

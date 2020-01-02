@@ -11,15 +11,14 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.buildup.data.DesignInCategory;
+import com.example.buildup.data.ResultProduk;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class AdapterProduk extends RecyclerView.Adapter<AdapterProduk.ViewHolder> {
+public class AdapterBarang extends RecyclerView.Adapter<AdapterBarang.ViewHolder> {
 
-    private List<DesignInCategory> mListItem;
+    private List<Item> mListItem;
     private OnItemRvClickedDesign mListener;
     private Context mContext;
 
@@ -46,7 +45,7 @@ public class AdapterProduk extends RecyclerView.Adapter<AdapterProduk.ViewHolder
         }
     }
 
-    public AdapterProduk(Context context, List<DesignInCategory> listItem){
+    public AdapterBarang(Context context, List<Item> listItem){
         mListItem = listItem;
         mContext = context;
 //        mListener = (OnItemRvClickedDesign) context;
@@ -66,13 +65,13 @@ public class AdapterProduk extends RecyclerView.Adapter<AdapterProduk.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        DesignInCategory currentItem = mListItem.get(position);
+        Item currentItem = mListItem.get(position);
 
-        holder.mImageView.setImageResource(R.drawable.rumah_modern);
+//        holder.mImageView.setImageResource(currentItem.getmImageResource());
 //        Glide.with(holder.itemView).load(currentItem.getAllImagesDesign().get(0)).into(holder.mImageView);
-        holder.namaProduk.setText(currentItem.getDesignName());
+        holder.namaProduk.setText(currentItem.getNamaProduk());
         holder.merkProduk.setText("");
-        holder.hargaProduk.setText("");
+        holder.hargaProduk.setText(currentItem.getHargaProduk());
 
 
     }
@@ -83,7 +82,7 @@ public class AdapterProduk extends RecyclerView.Adapter<AdapterProduk.ViewHolder
     }
 
     public interface OnItemRvClickedDesign {
-        void goToDeskripsiActivity(DesignInCategory design);
+        void goToDeskripsiActivity(Item produk);
     }
 
 }

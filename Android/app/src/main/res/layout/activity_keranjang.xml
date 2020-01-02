@@ -121,6 +121,7 @@
                                     android:id="@+id/minus"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginTop="-4dp"
                                     android:layout_weight="1"
                                     android:text="-"
                                     android:textAlignment="center"
@@ -130,6 +131,7 @@
                                     android:id="@+id/jumlah_item"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginTop="-4dp"
                                     android:layout_weight="1"
                                     android:text="1"
                                     android:textAlignment="center"
@@ -139,6 +141,7 @@
                                     android:id="@+id/plus"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginTop="-4dp"
                                     android:layout_weight="1"
                                     android:text="+"
                                     android:textAlignment="center"
@@ -150,6 +153,8 @@
                             android:id="@+id/imageView54"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginRight="-8dp"
                             android:layout_weight="1"
                             app:srcCompat="@drawable/cancel" />
 
