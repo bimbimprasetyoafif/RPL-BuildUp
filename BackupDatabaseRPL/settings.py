@@ -128,20 +128,7 @@ DATABASES = {
     }
 }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'sql_server.pyodbc',
-#         'NAME': 'rpl',
-#         'USER': 'bimo@dicodingserverbimo',
-#         'PASSWORD': 'bu1ldup!',
-#         'HOST': 'dicodingserverbimo.database.windows.net',
-#         'PORT': '',
-#         'OPTIONS': {
-#         #    'driver': 'SQL Server Native Client 11.0',
-#             'driver': 'ODBC Driver 17 for SQL Server',
-#         },
-#     },
-# }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
