@@ -48,7 +48,7 @@ public class DaftarFragment extends Fragment implements View.OnClickListener{
         editTextName = rootview.findViewById(R.id.namaText);
         editTextAddress = rootview.findViewById(R.id.alamatText);
         editTextPhone = rootview.findViewById(R.id.noTelpText);
-        editTextPassword2 = rootview.findViewById(R.id.passwordText);
+        editTextPassword2 = rootview.findViewById(R.id.password2Text);
         editTextPassword = rootview.findViewById(R.id.passwordText);
         editTextUsername = rootview.findViewById(R.id.usernameText);
 
@@ -66,7 +66,7 @@ public class DaftarFragment extends Fragment implements View.OnClickListener{
         String username = editTextUsername.getText().toString().trim();
         String phone = editTextPhone.getText().toString().trim();
         String address = editTextAddress.getText().toString().trim();
-        String password2 = editTextPassword.getText().toString().trim();
+        String password2 = editTextPassword2.getText().toString().trim();
 
         if (email.isEmpty()){
             editTextEmail.setError("Email is required");
@@ -75,20 +75,20 @@ public class DaftarFragment extends Fragment implements View.OnClickListener{
         }
 
         if (phone.isEmpty()){
-            editTextEmail.setError("Phone is required");
-            editTextEmail.requestFocus();
+            editTextPhone.setError("Phone is required");
+            editTextPhone.requestFocus();
             return;
         }
 
         if (address.isEmpty()){
-            editTextEmail.setError("Address is required");
-            editTextEmail.requestFocus();
+            editTextAddress.setError("Address is required");
+            editTextAddress.requestFocus();
             return;
         }
 
         if (nik.isEmpty()){
-            editTextEmail.setError("NIK is required");
-            editTextEmail.requestFocus();
+            editTextNik.setError("NIK is required");
+            editTextNik.requestFocus();
             return;
         }
 
@@ -99,7 +99,18 @@ public class DaftarFragment extends Fragment implements View.OnClickListener{
         }
 
         if (username.isEmpty()){
-            editTextName.setError("Username is required");
+            editTextUsername.setError("Username is required");
+            editTextUsername.requestFocus();
+            return;
+        }
+
+        if (password2.isEmpty()){
+            editTextPassword2.setError("please retype password");
+            editTextPassword2.requestFocus();
+            return;
+        }
+        if (name.isEmpty()){
+            editTextName.setError("Name is required");
             editTextName.requestFocus();
             return;
         }
@@ -107,7 +118,7 @@ public class DaftarFragment extends Fragment implements View.OnClickListener{
         Call<RegisterResponse> call = RetrofitClient
                 .getInstance()
                 .getApi()
-                .createUser(email, password, name, nik, address, phone, password2, username);
+                .createUser(nik, email, username, password, password2, name, address, phone);
 
         call.enqueue(new Callback<RegisterResponse>() {
             @Override
@@ -124,6 +135,7 @@ public class DaftarFragment extends Fragment implements View.OnClickListener{
             @Override
             public void onFailure(Call<RegisterResponse> call, Throwable t) {
                 Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_LONG).show();
+                t.printStackTrace();
             }
         });
     }
